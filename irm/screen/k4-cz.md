@@ -1,0 +1,147 @@
+<style>
+img[alt^="image"] {max-width:20px;}
+img[alt^="bigimage"] {  max-height:60px}
+tbody tr:nth-child(even){background-color:#f1f1f1}
+</style><bdl-tabs idlist="obr1,obr3,obr2,obr4,obr5,reference,feedback" titlelist="sim,metabolismus železa,hepcidin,celková regulace,buněčná regulace,reference,zpětná vazba"></bdl-tabs>
+<div class="w3-row" id="obr1">
+<div class="w3-twothird w3-center">
+
+**metabolismus železa, celkový pohled**
+<bdl-animate-adobe src="ZelezoCelekFinal2.js" width="800" height="600" name="ZelezoCelekFinal2" fromid="idfmi" responsive="true"></bdl-animate-adobe>
+<bdl-bind2a-text findex="33" aname="children.0.ZaludekPopelniceMerak_text" convertor="1,3.6"></bdl-bind2a-text>
+<bdl-bind2a-text findex="17" aname="children.0.SrdcePopelniceMerak_text" convertor="1,1.6"></bdl-bind2a-text>
+<bdl-bind2a-text findex="4" aname="children.0.SrdceHepcidinMerak_text" convertor="1,0.665"></bdl-bind2a-text>
+<bdl-bind2a-text findex="0" aname="children.0.CevaTransferinMerak_text" convertor="1,1.5"></bdl-bind2a-text>
+<bdl-bind2a-text findex="4" aname="children.0.CevaHepcidinMerak_text" convertor="1,0.665"></bdl-bind2a-text>
+<bdl-bind2a-text findex="4" aname="children.0.SlezinaHepcidinMerak_text" convertor="1,0.665"></bdl-bind2a-text>
+<bdl-bind2a-text findex="4" aname="children.0.JatraHepcidinMerak_text" convertor="1,0.665"></bdl-bind2a-text>
+<bdl-bind2a-text findex="32" aname="children.0.ZaludekCervenyMerakOut_text" convertor="1,1.8"></bdl-bind2a-text>
+<bdl-bind2a-text findex="4" aname="children.0.ZaludekHepcidinMerak_text" convertor="1,0.665"></bdl-bind2a-text>
+<bdl-bind2a findex="33" aname="children.0.children.358.StrevaModraSipkaOut_anim" amin="0" amax="159"></bdl-bind2a>
+<bdl-bind2a findex="33" aname="children.0.children.358.ZaludekModraSipkaOut_anim" amin="0" amax="99"></bdl-bind2a>
+<bdl-bind2a findex="1" aname="children.0.children.358.JatraZlutaSipkaOut_anim" amin="0" amax="159"></bdl-bind2a>
+<bdl-bind2a findex="3" aname="children.0.children.358.StrikackaFeFialovaSipkaIn_anim" amin="0" amax="159" fmin="0" fmax="1"></bdl-bind2a>
+<bdl-bind2a findex="4" aname="children.0.children.358.JatraFialovaSipkaOut_anim.ZlutaPruhovana4_anim" amin="0" amax="159"></bdl-bind2a>
+<bdl-bind2a findex="30" aname="children.0.children.358.JatraFialovaSipkaOut_anim" amin="0" amax="159"></bdl-bind2a>
+<bdl-bind2a findex="46" aname="children.0.children.358.JatraFialovaSipkaIn_anim" amin="0" amax="99"></bdl-bind2a>
+<bdl-bind2a findex="45" aname="children.0.children.358.KostFialovaSipkaOut_anim" amin="0" amax="159"></bdl-bind2a>
+<bdl-bind2a findex="44" aname="children.0.children.358.KrevFialovaSipkaOut_anim" amin="0" amax="159"></bdl-bind2a>
+<bdl-bind2a findex="43" aname="children.0.children.358.KrevFialovaSipkaIn_anim" amin="0" amax="99"></bdl-bind2a>
+<bdl-bind2a findex="42" aname="children.0.children.358.KostFialovaSipkaIn_anim" amin="0" amax="159"></bdl-bind2a>
+<bdl-bind2a findex="29" aname="children.0.children.358.SlezinaFialovaSipkaOut_anim" amin="0" amax="159"></bdl-bind2a>
+<bdl-bind2a findex="21" aname="children.0.children.358.SrdceFialovaSipkaOut_anim" amin="0" amax="99"></bdl-bind2a>
+<bdl-bind2a findex="16" aname="children.0.children.358.SrdceFialovaSipkaIn_anim" amin="0" amax="99"></bdl-bind2a>
+<bdl-bind2a findex="17" aname="children.0.children.358.SrdceModraSipkaOut_anim" amin="0" amax="159"></bdl-bind2a>
+<bdl-bind2a findex="2" aname="children.0.children.358.KapackaFeFialovaSipkaOut_anim" amin="0" amax="159" fmin="0" fmax="1"></bdl-bind2a>
+<bdl-bind2a findex="28" aname="children.0.children.358.ZaludekFialovaSipkaOut_anim" amin="0" amax="159"></bdl-bind2a>
+<bdl-bind2a findex="4" aname="children.0.ZaludekZlutaCaraHepcidin_anim" amin="0" amax="159"></bdl-bind2a>
+<bdl-bind2a findex="41" aname="children.0.KostFeritin_anim" amin="0" amax="159"></bdl-bind2a>
+<bdl-bind2a findex="40" aname="children.0.KrevFeritin_anim" amin="0" amax="99"></bdl-bind2a>
+<bdl-bind2a findex="39" aname="children.0.ZaludekFeritin_anim" amin="0" amax="159"></bdl-bind2a>
+<bdl-bind2a findex="38" aname="children.0.SrdceFeritin_anim" amin="0" amax="159"></bdl-bind2a>
+<bdl-bind2a findex="37" aname="children.0.SlezinaFeritin_anim" amin="0" amax="159"></bdl-bind2a>
+<bdl-bind2a findex="36" aname="children.0.JatraFeritin_anim" amin="0" amax="159"></bdl-bind2a>
+<bdl-bind2a findex="4" aname="children.0.SrdceZlutaCaraHepcidin_anim" amin="0" amax="159"></bdl-bind2a>
+<bdl-bind2a findex="4" aname="children.0.SlezinaZlutaCaraHepcidin_anim" amin="0" amax="159"></bdl-bind2a>
+<bdl-bind2a findex="0" aname="children.0.FeTransferin_anim" amin="0" amax="159"></bdl-bind2a>
+<bdl-bind2a findex="4" aname="children.0.JatraZlutaCaraHepcidin_anim" amin="0" amax="99"></bdl-bind2a>
+<bdl-bind2a findex="21" aname="children.0.SrdceKanalFialovy_anim" amin="99" amax="0"></bdl-bind2a>
+<bdl-bind2a findex="11" aname="children.0.SrdceSemafor_anim" amin="0" amax="8" fmin="0" fmax="1"></bdl-bind2a>
+<bdl-bind2a findex="6" aname="children.0.StrikackaModra_anim" amin="0" amax="29" fmin="0" fmax="1"></bdl-bind2a>
+<bdl-bind2a findex="17" aname="children.0.merakPopelnice2_anim" amin="0" amax="99"></bdl-bind2a>
+<bdl-bind2a findex="33" aname="children.0.merakPopelnice1_anim" amin="0" amax="99"></bdl-bind2a>
+<bdl-bind2a findex="0" aname="children.0.CevaTransferinMerak_anim" amin="0" amax="99"></bdl-bind2a>
+<bdl-bind2a findex="4" aname="children.0.SrdceHepcidinMerak_anim" amin="0" amax="99" fmin="0" fmax="4.8"></bdl-bind2a>
+<bdl-bind2a findex="34" aname="children.0.ZaludekModraSipkaIn_anim" amin="0" amax="159"></bdl-bind2a>
+<bdl-bind2a findex="32" aname="children.0.ZaludekCervenyMerakOut_anim" amin="0" amax="99"></bdl-bind2a>
+<bdl-bind2a findex="4" aname="children.0.CevaHepcidinMerak_anim" amin="0" amax="99" fmin="0" fmax="4.8"></bdl-bind2a>
+<bdl-bind2a findex="13" aname="children.0.JatraKanalFialovy_anim" amin="99" amax="0"></bdl-bind2a>
+<bdl-bind2a findex="26" aname="children.0.SlezinaKanalFialovy_anim" amin="99" amax="0"></bdl-bind2a>
+<bdl-bind2a findex="12" aname="children.0.ZaludekKanalFialovy_anim" amin="99" amax="0"></bdl-bind2a>
+<bdl-bind2a findex="9" aname="children.0.ZaludekSemafor_anim" amin="0" amax="8" fmin="0" fmax="1"></bdl-bind2a>
+<bdl-bind2a findex="25" aname="children.0.SlezinaSemafor_anim" amin="0" amax="8" fmin="0" fmax="1"></bdl-bind2a>
+<bdl-bind2a findex="8" aname="children.0.JatraSemafor2_anim" amin="0" amax="9" fmin="0" fmax="1"></bdl-bind2a>
+<bdl-bind2a findex="10" aname="children.0.JatraSemafor1_anim" amin="0" amax="8" fmin="0" fmax="1"></bdl-bind2a>
+<bdl-bind2a findex="4" aname="children.0.SlezinaHepcidinMerak_anim" amin="0" amax="99" fmin="0" fmax="4.8"></bdl-bind2a>
+<bdl-bind2a findex="4" aname="children.0.JatraHepcidinMerak_anim" amin="0" amax="99" fmin="0" fmax="4.8"></bdl-bind2a>
+<bdl-bind2a findex="4" aname="children.0.ZaludekHepcidinMerak_anim" amin="0" amax="99" fmin="0" fmax="4.8"></bdl-bind2a>
+<bdl-bind2a-play findex="2" aname="children.0.children.348.KapackaJehlaFe_anim" amin="0" amax="99"></bdl-bind2a-play>
+<bdl-bind2a-play findex="2" aname="children.0.children.348.Kapka1_anim" amin="0" amax="99"></bdl-bind2a-play>
+<bdl-bind2a-play findex="2" aname="children.0.children.348.KapackaFeMale_anim" amin="0" amax="99"></bdl-bind2a-play>
+<bdl-bind2a-play findex="2" aname="children.0.children.348.KapackaFeVelke_anim" amin="0" amax="99"></bdl-bind2a-play>
+<bdl-bind2a-play findex="3" aname="children.0.StrikackaCervena_anim" amin="0" amax="99"></bdl-bind2a-play>
+
+</div>
+<div class="w3-third">
+
+<bdl-fmi id="idfmi" mode="" src="FeMetabolism_FeMetabolismModel.js" fminame="FeMetabolism_FeMetabolismModel" tolerance="0.000001" starttime="0" fstepsize="0.5" fpslimit="10" guid="{758fbe4b-ece0-4234-8c6f-b5909d29d10c}" valuereferences="33554447,1174405383,16777266,16777263,1174405342,33554436,33554434,1174405387,16777268,16777269,16777270,16777272,33554443,33554441,33554444,1174405412,1174405405,1174405407,1174405403,1174405404,1174405335,1174405406,33554454,33554455,33554440,16777271,33554442,33554438,1174405354,1174405395,1174405367,16777262,1174405352,1711276268,100663419,1174405343,1174405344,1174405346,1174405345,33554446,33554445,1174405415,1174405416,1174405419,1174405394,1174405366" valuelabels="Fe_ser,hep_in,transfusion,bleeding,hep,Il6,LPS,Il6_in,hep_knockout,Fpn_duo_knockout,Fpn_liv_knockout,Fpn_res_knockout,Fpn_duo,Fpn_liv,Fpn_res,Fpn_res_in,Fe_res_in_ser,Fe_res_out_loss,Fe_res_to_ferritin,Fe_res_from_ferritin,Fpn_res_mRNA_in,Fe_res_out_ser,Fe_res_2,Fe_res_3,Fpn_res_mRNA,Fpn_spl_knockout,Fpn_spl,Fpn_spl_mRNA,Fe_duo_out_ser,Fe_spl_out_ser,Fe_liv_out_ser,Fe_food,Fe_duo_in_food,Fe_duo_unused,Fe_duo_intake,Fe_liv,Fe_spl,Fe_res,Fe_duo,Fe_RBC,Fe_bm,Fe_bm_in_ser,Fe_bm_out_RBC,Fe_RBC_out_spl,Fe_spl_in_bm,Fe_liv_in_ser" inputs="id1,16777262,1,1;idfpnliv,16777270,1,1,t;idhep,16777268,1,1,t;idlps,33554434,1,1,t;id11,16777264,1,1,t;id10,16777267,1,1,t;idspl,16777271,1,1,t;idres,16777272,1,1,t;id7,16777263,1,1,t;id8,16777266,1,1,t;idduo,16777269,1,1,t;idhepreg,16777216,1,1,t;idhepmanual,16777217,1,1,t" inputlabels="Fe_food,Fpn_liv_knockout,hep_knockout,LPS,malabsorption,unregulated_absorption,Fpn_spl_knockout,Fpn_res_knockout,bleeding,transfusion,Fpn_duo_knockout,hep_regulation,hep_manual" showtime="true" showtimemultiply="3600"></bdl-fmi>
+
+
+||| 
+|-------------|-------|
+| množství železa v potravě [$\frac{\mu g}{h}$] | <bdl-range id="id1" title="" min="0" max="2000" default="219" step="1"></bdl-range> |
+| gen pro hepcidin | <bdl-checkbox id="idhep" titlemin="gen je knockoutován (neaktivní)" titlemax="gen je aktivní" default="true"></bdl-checkbox>  |
+| 1$\mu$g při stisknutí | <bdl-buttonparams title="LPS injekce" ids="idlps" values="1" fromid="idfmi"></bdl-buttonparams>  |
+| Malabsorpce (1-norma) | <bdl-range id="id11" title="" min="0" max="1" default="1" step="0.05"></bdl-range>  |
+| Regulace DMT1 v duodenu | <bdl-checkbox id="id10" titlemin="absorpce je fyziologicky regulovaná" titlemax="regulace absorpce je vypnuta" default="false"></bdl-checkbox>  |
+| Krevní ztráty | <bdl-range id="id7" title="" min="0" max="2" default="0" step="0.1"></bdl-range>  $\frac{ml}{h}$ |
+| Příjem krve  | <bdl-range id="id8" title="" min="0" max="10" default="0" step="1"></bdl-range> $\frac{ml}{h}$ |
+| Autoregulace hepcidinu  | <bdl-checkbox id="idhepreg" titlemin="vypnuto" titlemax="zapnuto" default="true"></bdl-checkbox>  |
+| Hepcidin ručně $\mu$g| <bdl-range id="idhepmanual" title="" min="0" max="2" default="0.665" step="0.001"></bdl-range>  |
+<div class="w3-hide">| duodenum:gen FPN | <bdl-checkbox id="idduo" titlemin="gen je knockoutován (neaktivní)" titlemax="gen je aktivní" default="true"></bdl-checkbox>  |
+| játra: gen FPN | <bdl-checkbox id="idfpnliv" titlemin="gen je knockoutován (neaktivní)" titlemax="gen Fpn je aktivní" default="true"></bdl-checkbox>  |
+| slezina: gen FPN | <bdl-checkbox id="idspl" titlemin="gen je knockoutován (neaktivní)" titlemax="gen je aktivní" default="true"></bdl-checkbox>  |
+| ostatní: gen FPN | <bdl-checkbox id="idres" titlemin="gen je knockoutován (neaktivní)" titlemax="gen je aktivní" default="true"></bdl-checkbox> | </div>
+
+
+
+<div class="w3-sand">
+
+**Kazuistika závěr**
+<bdl-quizx id="q4.1" type="choice2" question="4.1 Spusťte simulaci a nasimulujte příjem potravy bohatý na železo (příjem železa 2000 mug/h). Jaké následky vidíte?" answers="A. postupné zvyšování koncentrace železa v plasmě i v buňkách. |B. postupné zvýšování koncentrace hepcidinu, koncentrace železa v plasmě mírně naroste ale pak zůstává stejná." correctoptions="false|true" explanations="ne|ano" buttontitle="zkontrolovat odpověď"></bdl-quizx>
+<bdl-quizx id="q4.2" type="choice2" question="4.2 Pokračujte v simulaci a vypněte gen pro hepcidin. Hepcidin přestává regulovat metabolismus železa v organismu. Co pozorujete." answers="A. postupné zvyšování koncentrace železa v plasmě i v buňkách. |B. postupné snižování koncentrace železa v plasmě a v buňkách." correctoptions="true|false" explanations="ano|ne" buttontitle="zkontrolovat odpověď"></bdl-quizx>
+<bdl-quizx id="q4.3" type="choice2" question="4.3 Vyberte hlavní roli hepcidinu v metabolismu železa." answers="A. hepcidin brání přetížení organismu železem tím, že redukuje jeho výdej z enterocytu duodena a tím nepřímo tedy vstřebávání železa, pokud je strava bohatá na železo a zároveň výdeji železa z jiných buněk (především z jater) do krve. |B. hepcidin brání přetížení organismu železem tím, že reguluje jeho výdej ledvinami do moči." correctoptions="true|false" explanations="ano|ne" buttontitle="zkontrolovat odpověď"></bdl-quizx>
+<bdl-quizx id="q4.4" type="choice2" question="Vyberte nejvhodnější léčbu pacienta pro akutní anemickou hypoxii a sideropenickou anémii u našeho pacienta:" answers="A. Akutně lze použít kyslíkovou masku a aplikovat krevní transfúzi. Po propuštění perorální substituce nutrientů ani mikronutrientů nemusí stačit. Intravenózní aplikace železa karboxyl maltózou bude potřeba doživotně. Pacient musí pravidelně docházet.|B.Flebotomie - terapeutický odběr krve. Možnost použít perorálně chelační činidla, která vážou na sebe ionty kovů a zamezují jejich vstřebávání nebo usnadňují jejich vylučování." correctoptions="true|false" explanations="ano|ne" buttontitle="zkontrolovat odpověď"></bdl-quizx>
+<bdl-quizx id="q4.5" type="choice2" question="Vyberte nejvhodnější léčbu pro hemochromatózu:" answers="A. Akutně lze použít kyslíkovou masku a aplikovat krevní transfúzi. Po propuštění perorální substituce nutrientů ani mikronutrientů nemusí stačit. Intravenózní aplikace železa karboxyl maltózou bude potřeba doživotně. Pacient musí pravidelně docházet.|B.Flebotomie - terapeutický odběr krve. Možnost použít perorálně chelační činidla, která vážou na sebe ionty kovů a zamezují jejich vstřebávání nebo usnadňují jejich vylučování." correctoptions="false|true" explanations="ne|ano" buttontitle="zkontrolovat odpověď"></bdl-quizx>
+<bdl-quiz-summary id="qs">
+</bdl-quiz-summary>
+<bdl-quiz-control ids="q4.1,q4.2,q4.3,q4.4,q4.5,qs"></bdl-quiz-control>
+
+</div>
+
+</div>
+</div>
+<div id="obr4">
+
+![feintake](feintake.png)
+
+</div>
+<div id="obr5">
+
+![fecelular](fecelular.png)
+</div>
+<div id="obr3">
+
+![hepcidin2](hepcidin2.png)
+
+</div>
+<div id="obr2">
+
+A ![1mediumregulacehepcidinu](imageregulacehepcidinu.png)
+
+**A** Schématické znázornění role hepcidinu v udržování homeostázy železa. Hepcidin je regulován primárně třemi nezávislými mechanismy: 1) aktuální hladina železa - zvyšuje hladinu hepcidinu, 2) aseptický nebo infekční zánět - zvyšuje hladinu hepcidinu, 3) erytropoetická aktivita - snižuje hladinu hepcidinu.
+
+</div>
+<div id="reference" class="w3-large">
+
+1. Metabolismus železa: [digitální skripta se simulátory](https://egolem.online/ironmetabolism/)
+2. Léčba obezity, chirurgie: [článek NZIP](https://www.nzip.cz/clanek/735-lecba-obezity-chirurgie)
+3. Kazuistika: [Křížová J. Když je hematolog na sideropenii krátký... Iron Academy 2022: Proč rozumět metabolismu železa a jeho vlivu na zdraví pacienta, 15. 9. 2022.](https://www.prolekare.cz/zaznamy-z-kongresu/iron-academy-2022-jak-podle-aktualnich-poznatku-postupovat-pri-diagnostice-a-lecbe-deficitu-zeleza-a-co-znamena-pri-srdecnim-selhani-132595/zvladne-fcm-deficit-zeleza-po-bariatricke-operaci-kazuistika)
+
+
+</div>
+<div id="feedback">
+
+<a href="https://api.socrative.com/rc/eeuJ96" target="_blank" class="w3-button w3-theme-d1 w3-xxlarge">ohodnoťte seminář</a>
+
+</div>

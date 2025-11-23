@@ -1,0 +1,3653 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fmiModelDescription
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  fmiVersion="2.0"
+  modelName="FeMetabolism.FeMetabolismModel"
+  guid="{758fbe4b-ece0-4234-8c6f-b5909d29d10c}"
+  description="Implementation of Enulescu et al. PLOS Comput. Biol. 2017 Fe metabolism model: final version"
+  generationTool="Dymola Version 2025x Refresh 1, 2025-04-11 (Co-simulation using Cvode)"
+  generationDateAndTime="2025-11-23T11:58:09Z"
+  variableNamingConvention="structured"
+  numberOfEventIndicators="0">
+  <CoSimulation
+    modelIdentifier="FeMetabolism_FeMetabolismModel"
+    canHandleVariableCommunicationStepSize="true"
+    canInterpolateInputs="true"
+    maxOutputDerivativeOrder="1"
+    canNotUseMemoryManagementFunctions="true"
+    canGetAndSetFMUstate="true"
+    canSerializeFMUstate="true"
+    providesDirectionalDerivative="true">
+    <SourceFiles>
+      <File
+        name="all_FeMetabolism_FeMetabolismModel.c"/>
+    </SourceFiles>
+  </CoSimulation>
+  <UnitDefinitions>
+    <Unit
+      name="1"/>
+    <Unit
+      name="h-1">
+      <BaseUnit s="-1"
+        factor="0.0002777777777777778"/>
+    </Unit>
+    <Unit
+      name="ug">
+      <BaseUnit kg="1"
+        factor="1E-09"/>
+    </Unit>
+    <Unit
+      name="ug-1">
+      <BaseUnit kg="-1"
+        factor="1000000000.0"/>
+    </Unit>
+    <Unit
+      name="ug.h-1">
+      <BaseUnit kg="1"
+        s="-1"
+        factor="2.777777777777778E-13"/>
+    </Unit>
+    <Unit
+      name="ug/s">
+      <BaseUnit kg="1"
+        s="-1"
+        factor="1E-09"/>
+    </Unit>
+  </UnitDefinitions>
+  <DefaultExperiment startTime="0.0"
+    stopTime="1000000.0"
+    tolerance="1E-12"/>
+  <ModelVariables>
+    <!-- Index for next variable = 1 -->
+    <ScalarVariable
+      name="hep_norm"
+      valueReference="100663296"
+      description="Hepcidin amount (s16 ) - NORM"
+      variability="constant">
+      <Real
+        unit="ug"
+        start="0.664938"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 2 -->
+    <ScalarVariable
+      name="Bmp6_norm"
+      valueReference="100663297"
+      description="Bmp6 amount (s18) - NORM"
+      variability="constant">
+      <Real
+        unit="ug"
+        start="15.8291"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 3 -->
+    <ScalarVariable
+      name="LPS_norm"
+      valueReference="100663298"
+      description="LPS (Lipopolysaccharide) amount (s23) - NORM"
+      variability="constant">
+      <Real
+        unit="ug"
+        start="0.0"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 4 -->
+    <ScalarVariable
+      name="Il6mRNA_norm"
+      valueReference="100663299"
+      description="IL-6 mRNA amount (s21) - NORM"
+      variability="constant">
+      <Real
+        unit="ug"
+        start="0.0"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 5 -->
+    <ScalarVariable
+      name="Il6_norm"
+      valueReference="100663300"
+      description="IL-L amount (s22) - NORM"
+      variability="constant">
+      <Real
+        unit="ug"
+        start="0.0"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 6 -->
+    <ScalarVariable
+      name="Fpn_liv_mRNA_norm"
+      valueReference="100663301"
+      description="Fpn mRNA amount in liver (s7) - NORM"
+      variability="constant">
+      <Real
+        unit="ug"
+        start="0.922424"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 7 -->
+    <ScalarVariable
+      name="Fpn_spl_mRNA_norm"
+      valueReference="100663302"
+      description="Fpn mRNA amount in spleen (s9) - NORM"
+      variability="constant">
+      <Real
+        unit="ug"
+        start="0.922424"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 8 -->
+    <ScalarVariable
+      name="Fpn_duo_mRNA_norm"
+      valueReference="100663303"
+      description="Fpn mRNA amount in duodenum (s8) - NORM"
+      variability="constant">
+      <Real
+        unit="ug"
+        start="0.922424"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 9 -->
+    <ScalarVariable
+      name="Fpn_res_mRNA_norm"
+      valueReference="100663304"
+      description="Fpn mRNA amount in other organs (s11) - NORM"
+      variability="constant">
+      <Real
+        unit="ug"
+        start="0.922424"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 10 -->
+    <ScalarVariable
+      name="Fpn_liv_norm"
+      valueReference="100663305"
+      description="Fpn amount in liver (s12) - NORM"
+      variability="constant">
+      <Real
+        unit="ug"
+        start="1.00036"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 11 -->
+    <ScalarVariable
+      name="Fpn_spl_norm"
+      valueReference="100663306"
+      description="Fpn amount in spleen (s14) - NORM"
+      variability="constant">
+      <Real
+        unit="ug"
+        start="1.00049"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 12 -->
+    <ScalarVariable
+      name="Fpn_duo_norm"
+      valueReference="100663307"
+      description="Fpn amount in duodenum (s13) - NORM"
+      variability="constant">
+      <Real
+        unit="ug"
+        start="1.00017"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 13 -->
+    <ScalarVariable
+      name="Fpn_res_norm"
+      valueReference="100663308"
+      description="Fpn amount in other organs (s15) - NORM"
+      variability="constant">
+      <Real
+        unit="ug"
+        start="1.0002"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 14 -->
+    <ScalarVariable
+      name="Fe_liv_norm"
+      valueReference="100663309"
+      description="Fe amount in liver (s2) - NORM"
+      variability="constant">
+      <Real
+        unit="ug"
+        start="76.9562"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 15 -->
+    <ScalarVariable
+      name="Fe_spl_norm"
+      valueReference="100663310"
+      description="Fe amount in spleen (s5) - NORM"
+      variability="constant">
+      <Real
+        unit="ug"
+        start="17.7295"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 16 -->
+    <ScalarVariable
+      name="Fe_bm_norm"
+      valueReference="100663311"
+      description="Fe amount in bones (s3) - NORM"
+      variability="constant">
+      <Real
+        unit="ug"
+        start="63.1596"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 17 -->
+    <ScalarVariable
+      name="Fe_RBC_norm"
+      valueReference="100663312"
+      description="Fe amount in red blood cells (s6) - NORM"
+      variability="constant">
+      <Real
+        unit="ug"
+        start="1016.72"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 18 -->
+    <ScalarVariable
+      name="Fe_duo_norm"
+      valueReference="100663313"
+      description="Fe amount in duodenum (s4) - NORM"
+      variability="constant">
+      <Real
+        unit="ug"
+        start="2.97118"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 19 -->
+    <ScalarVariable
+      name="Fe_res_norm"
+      valueReference="100663314"
+      description="Fe amount in other organs (s10) - NORM"
+      variability="constant">
+      <Real
+        unit="ug"
+        start="466.811"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 20 -->
+    <ScalarVariable
+      name="Fe_ser_norm"
+      valueReference="100663315"
+      description="Fe amount in serum (s1) - NORM"
+      variability="constant">
+      <Real
+        unit="ug"
+        start="1.51304"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 21 -->
+    <ScalarVariable
+      name="Fe_total_norm"
+      valueReference="100663316"
+      description="Total Fe amount - NORM"
+      variability="constant">
+      <Real
+        unit="ug"
+        start="1645.86052"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 22 -->
+    <ScalarVariable
+      name="Fe_ser_input_norm"
+      valueReference="100663317"
+      description="Fe amount in serum: input - NORM"
+      variability="constant">
+      <Real
+        unit="ug.h-1"
+        start="20.897783"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 23 -->
+    <ScalarVariable
+      name="Fe_ser_output_norm"
+      valueReference="100663318"
+      description="Fe amount in serum: output - NORM"
+      variability="constant">
+      <Real
+        unit="ug.h-1"
+        start="20.897783"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 24 -->
+    <ScalarVariable
+      name="Fe_duo_2_norm"
+      valueReference="100663319"
+      description="Fe++ in duodenum - NORM"
+      variability="constant">
+      <Real
+        unit="ug"
+        start="0.7427"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 25 -->
+    <ScalarVariable
+      name="Fe_duo_3_norm"
+      valueReference="100663320"
+      description="Fe+++ in duodenum, basically in ferritin - NORM"
+      variability="constant">
+      <Real
+        unit="ug"
+        start="2.2283"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 26 -->
+    <ScalarVariable
+      name="Fe_duo_to_ferritin_norm"
+      valueReference="100663321"
+      variability="constant">
+      <Real start="2.2283"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 27 -->
+    <ScalarVariable
+      name="Fe_duo_from_ferritin_norm"
+      valueReference="100663322"
+      variability="constant">
+      <Real start="2.2283"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 28 -->
+    <ScalarVariable
+      name="Fe_duo_intake_norm"
+      valueReference="100663323"
+      description="Fe intake from food - NORM"
+      variability="constant">
+      <Real start="5.4441032"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 29 -->
+    <ScalarVariable
+      name="Fe_duo_in_food_norm"
+      valueReference="100663324"
+      description="Fe input to duodenum from intestines, prev:in_1 - NORM"
+      variability="constant">
+      <Real start="1.8323029"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 30 -->
+    <ScalarVariable
+      name="Fe_duo_in_ser_norm"
+      valueReference="100663325"
+      description="Fe input to duodenum from serum, prev:in_2 - NORM"
+      variability="constant">
+      <Real start="1.066469"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 31 -->
+    <ScalarVariable
+      name="Fe_duo_out_ser_norm"
+      valueReference="100663326"
+      description="Fe output from duodenum to serum, prev:out_1 - NORM"
+      variability="constant">
+      <Real start="2.625664"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 32 -->
+    <ScalarVariable
+      name="Fe_duo_out_loss_norm"
+      valueReference="100663327"
+      description="Fe output from duodenum to intestines (Fe loss), prev:out_2 - NORM"
+      variability="constant">
+      <Real start="0.27310795"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 33 -->
+    <ScalarVariable
+      name="Fe_duo_unused_norm"
+      valueReference="100663328"
+      description="Unused Fe going through intestines - NORM"
+      variability="constant">
+      <Real start="3.6117998053891043"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 34 -->
+    <ScalarVariable
+      name="Fpn_duo_in_1_norm"
+      valueReference="100663329"
+      description="Fpn in duodenum creation: standard from mRNA - NORM"
+      variability="constant">
+      <Real start="0.027948529"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 35 -->
+    <ScalarVariable
+      name="Fpn_duo_in_2_norm"
+      valueReference="100663330"
+      description="Fpn in duodenum creation by activation of Fe_duo - NORM"
+      variability="constant">
+      <Real start="0.013292233"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 36 -->
+    <ScalarVariable
+      name="Fpn_duo_out_1_norm"
+      valueReference="100663331"
+      description="Degradation (internalization) of Fpn in duodenum: standard degradation rate - NORM"
+      variability="constant">
+      <Real start="0.021124585"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 37 -->
+    <ScalarVariable
+      name="Fpn_duo_out_2_norm"
+      valueReference="100663332"
+      description="Degradation (internalization) of Fpn in duodenum by hepcidine - NORM"
+      variability="constant">
+      <Real start="0.020116176"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 38 -->
+    <ScalarVariable
+      name="Fpn_duo_in_norm"
+      valueReference="100663333"
+      description="Fpn in duodenum synthesis - NORM"
+      variability="constant">
+      <Real start="0.041240762"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 39 -->
+    <ScalarVariable
+      name="Fpn_duo_out_norm"
+      valueReference="100663334"
+      description="Fpn in duodenum degradation - NORM"
+      variability="constant">
+      <Real start="0.041240761"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 40 -->
+    <ScalarVariable
+      name="Fpn_duo_mRNA_in_norm"
+      valueReference="100663335"
+      description="Fpn mRNA in duodenum synthesis - NORM"
+      variability="constant">
+      <Real start="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 41 -->
+    <ScalarVariable
+      name="Fpn_duo_mRNA_out_norm"
+      valueReference="100663336"
+      description="Fpn mRNA in duodenum degradation - NORM"
+      variability="constant">
+      <Real start="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 42 -->
+    <ScalarVariable
+      name="Fpn_duo_mRNA_inhib_norm"
+      valueReference="100663337"
+      description="Fpn mRNA in duodenum production inhibition by IL-6 (or indirectly by LPS) - NORM"
+      variability="constant">
+      <Real start="0"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 43 -->
+    <ScalarVariable
+      name="Fe_liv_2_norm"
+      valueReference="100663338"
+      description="Fe++ in liver - NORM"
+      variability="constant">
+      <Real
+        unit="ug"
+        start="19.2487"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 44 -->
+    <ScalarVariable
+      name="Fe_liv_3_norm"
+      valueReference="100663339"
+      description="Fe+++ in liver, basically in ferritin - NORM"
+      variability="constant">
+      <Real
+        unit="ug"
+        start="57.7461"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 45 -->
+    <ScalarVariable
+      name="Fe_liv_to_ferritin_norm"
+      valueReference="100663340"
+      variability="constant">
+      <Real start="57.7461"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 46 -->
+    <ScalarVariable
+      name="Fe_liv_from_ferritin_norm"
+      valueReference="100663341"
+      variability="constant">
+      <Real start="57.7461"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 47 -->
+    <ScalarVariable
+      name="Fe_liv_in_ser_norm"
+      valueReference="100663342"
+      description="Fe input to liver from serum - NORM"
+      variability="constant">
+      <Real start="5.992713"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 48 -->
+    <ScalarVariable
+      name="Fe_liv_out_ser_norm"
+      valueReference="100663343"
+      description="Fe output from liver to serum - NORM"
+      variability="constant">
+      <Real start="5.992713"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 49 -->
+    <ScalarVariable
+      name="Fpn_liv_in_1_norm"
+      valueReference="100663344"
+      description="Fpn in liver creation: standard from mRNA - NORM"
+      variability="constant">
+      <Real start="0.11963841"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 50 -->
+    <ScalarVariable
+      name="Fpn_liv_in_2_norm"
+      valueReference="100663345"
+      description="Fpn in liver creation by activation of Fe_liv - NORM"
+      variability="constant">
+      <Real start="0.030545777"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 51 -->
+    <ScalarVariable
+      name="Fpn_liv_out_1_norm"
+      valueReference="100663346"
+      description="Degradation (internalization) of Fpn in liver: standard degradation rate - NORM"
+      variability="constant">
+      <Real start="0.05538275"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 52 -->
+    <ScalarVariable
+      name="Fpn_liv_out_2_norm"
+      valueReference="100663347"
+      description="Degradation (internalization) of Fpn in liver by hepcidine - NORM"
+      variability="constant">
+      <Real start="0.09480143"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 53 -->
+    <ScalarVariable
+      name="Fpn_liv_in_norm"
+      valueReference="100663348"
+      description="Fpn in liver synthesis - NORM"
+      variability="constant">
+      <Real start="0.150184187"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 54 -->
+    <ScalarVariable
+      name="Fpn_liv_out_norm"
+      valueReference="100663349"
+      description="Fpn in liver degradation - NORM"
+      variability="constant">
+      <Real start="0.15018418"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 55 -->
+    <ScalarVariable
+      name="Fpn_liv_mRNA_in_norm"
+      valueReference="100663350"
+      description="Fpn mRNA in liver synthesis - NORM"
+      variability="constant">
+      <Real start="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 56 -->
+    <ScalarVariable
+      name="Fpn_liv_mRNA_out_norm"
+      valueReference="100663351"
+      description="Fpn mRNA in liver degradation - NORM"
+      variability="constant">
+      <Real start="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 57 -->
+    <ScalarVariable
+      name="Fpn_liv_mRNA_inhib_norm"
+      valueReference="100663352"
+      description="Fpn mRNA in liver production inhibition by IL-6 (or indirectly by LPS) - NORM"
+      variability="constant">
+      <Real start="0"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 58 -->
+    <ScalarVariable
+      name="Fe_ser_in_liv_norm"
+      valueReference="100663353"
+      description="Fe flow from liver to serum - NORM"
+      variability="constant">
+      <Real start="5.992713"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 59 -->
+    <ScalarVariable
+      name="Fe_ser_in_spl_norm"
+      valueReference="100663354"
+      description="Fe flow from spleen to serum - NORM"
+      variability="constant">
+      <Real start="4.2752566"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 60 -->
+    <ScalarVariable
+      name="Fe_ser_in_duo_norm"
+      valueReference="100663355"
+      description="Fe flow from duodenum to serum - NORM"
+      variability="constant">
+      <Real start="2.625664"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 61 -->
+    <ScalarVariable
+      name="Fe_ser_in_res_norm"
+      valueReference="100663356"
+      description="Fe flow from other organs to serum - NORM"
+      variability="constant">
+      <Real start="8.00415"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 62 -->
+    <ScalarVariable
+      name="Fe_ser_out_liv_norm"
+      valueReference="100663357"
+      description="Fe flow from serum to liver - NORM"
+      variability="constant">
+      <Real start="5.992713"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 63 -->
+    <ScalarVariable
+      name="Fe_ser_out_bm_norm"
+      valueReference="100663358"
+      description="Fe flow from serum to bone marrow - NORM"
+      variability="constant">
+      <Real start="4.2752566"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 64 -->
+    <ScalarVariable
+      name="Fe_ser_out_duo_norm"
+      valueReference="100663359"
+      description="Fe flow from serum to duodenum - NORM"
+      variability="constant">
+      <Real start="1.066469"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 65 -->
+    <ScalarVariable
+      name="Fe_ser_out_res_norm"
+      valueReference="100663360"
+      description="Fe flow from serum to other organs - NORM"
+      variability="constant">
+      <Real start="9.563345"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 66 -->
+    <ScalarVariable
+      name="hep_in_norm"
+      valueReference="100663361"
+      description="Production of hepcidin - NORM"
+      variability="constant">
+      <Real start="0.04654567"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 67 -->
+    <ScalarVariable
+      name="hep_out_norm"
+      valueReference="100663362"
+      description="Degradation of hepcidin - NORM"
+      variability="constant">
+      <Real start="0.04654567"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 68 -->
+    <ScalarVariable
+      name="Il6mRNA_in_norm"
+      valueReference="100663363"
+      description="Production of IL-6 mRNA - NORM"
+      variability="constant">
+      <Real start="0"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 69 -->
+    <ScalarVariable
+      name="Il6mRNA_out_norm"
+      valueReference="100663364"
+      description="Degradation of IL-6 mRNA - NORM"
+      variability="constant">
+      <Real start="0"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 70 -->
+    <ScalarVariable
+      name="Il6_in_norm"
+      valueReference="100663365"
+      description="Production of IL-6 - NORM"
+      variability="constant">
+      <Real start="0"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 71 -->
+    <ScalarVariable
+      name="Il6_out_norm"
+      valueReference="100663366"
+      description="Degradation of IL-6 - NORM"
+      variability="constant">
+      <Real start="0"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 72 -->
+    <ScalarVariable
+      name="Bmp6_in_norm"
+      valueReference="100663367"
+      description="Bmp6 production rate - NORM"
+      variability="constant">
+      <Real start="37.929714"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 73 -->
+    <ScalarVariable
+      name="Bmp6_out_norm"
+      valueReference="100663368"
+      description="Bmp6 degradation rate - NORM"
+      variability="constant">
+      <Real start="37.929714"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 74 -->
+    <ScalarVariable
+      name="Fe_spl_2_norm"
+      valueReference="100663369"
+      description="Fe++ in spleen - NORM"
+      variability="constant">
+      <Real
+        unit="ug"
+        start="4.43525"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 75 -->
+    <ScalarVariable
+      name="Fe_spl_3_norm"
+      valueReference="100663370"
+      description="Fe++ in spleen - NORM"
+      variability="constant">
+      <Real
+        unit="ug"
+        start="13.30575"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 76 -->
+    <ScalarVariable
+      name="Fe_spl_to_ferritin_norm"
+      valueReference="100663371"
+      variability="constant">
+      <Real start="13.30575"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 77 -->
+    <ScalarVariable
+      name="Fe_spl_from_ferritin_norm"
+      valueReference="100663372"
+      variability="constant">
+      <Real start="13.30575"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 78 -->
+    <ScalarVariable
+      name="Fe_spl_in_RBC_norm"
+      valueReference="100663373"
+      description="Fe flow to spleen from RBC - NORM"
+      variability="constant">
+      <Real start="3.663764"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 79 -->
+    <ScalarVariable
+      name="Fe_spl_in_bm_norm"
+      valueReference="100663374"
+      description="Fe flow to spleen from bone marrow - NORM"
+      variability="constant">
+      <Real start="0.61149263"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 80 -->
+    <ScalarVariable
+      name="Fe_spl_out_ser_norm"
+      valueReference="100663375"
+      description="Fe flow from spleen to serum - NORM"
+      variability="constant">
+      <Real start="4.2752566"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 81 -->
+    <ScalarVariable
+      name="Fpn_spl_in_1_norm"
+      valueReference="100663376"
+      description="Fpn in spleen creation: standard from mRNA - NORM"
+      variability="constant">
+      <Real start="0.020959321"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 82 -->
+    <ScalarVariable
+      name="Fpn_spl_in_2_norm"
+      valueReference="100663377"
+      description="Fpn in spleen creation by activation of Fe_spl - NORM"
+      variability="constant">
+      <Real start="0.005212414"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 83 -->
+    <ScalarVariable
+      name="Fpn_spl_out_1_norm"
+      valueReference="100663378"
+      description="Degradation (internalization) of Fpn in spleen: standard degradation rate - NORM"
+      variability="constant">
+      <Real start="0.0030254605"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 84 -->
+    <ScalarVariable
+      name="Fpn_spl_out_2_norm"
+      valueReference="100663379"
+      description="Degradation (internalization) of Fpn in spleen by hepcidine - NORM"
+      variability="constant">
+      <Real start="0.023146275"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 85 -->
+    <ScalarVariable
+      name="Fpn_spl_in_norm"
+      valueReference="100663380"
+      description="Fpn in spleen synthesis - NORM"
+      variability="constant">
+      <Real start="0.026171735"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 86 -->
+    <ScalarVariable
+      name="Fpn_spl_out_norm"
+      valueReference="100663381"
+      description="Fpn in spleen degradation - NORM"
+      variability="constant">
+      <Real start="0.0261717355"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 87 -->
+    <ScalarVariable
+      name="Fpn_spl_mRNA_in_norm"
+      valueReference="100663382"
+      description="Fpn mRNA in spleen synthesis - NORM"
+      variability="constant">
+      <Real start="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 88 -->
+    <ScalarVariable
+      name="Fpn_spl_mRNA_out_norm"
+      valueReference="100663383"
+      description="Fpn mRNA in spleen degradation - NORM"
+      variability="constant">
+      <Real start="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 89 -->
+    <ScalarVariable
+      name="Fpn_spl_mRNA_inhib_norm"
+      valueReference="100663384"
+      description="Fpn mRNA in spleen production inhibition by IL-6 (or indirectly by LPS) - NORM"
+      variability="constant">
+      <Real start="0"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 90 -->
+    <ScalarVariable
+      name="Fe_res_2_norm"
+      valueReference="100663385"
+      description="Fe++ in other organs - NORM"
+      variability="constant">
+      <Real
+        unit="ug"
+        start="116.74625"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 91 -->
+    <ScalarVariable
+      name="Fe_res_3_norm"
+      valueReference="100663386"
+      description="Fe++ in other organs - NORM"
+      variability="constant">
+      <Real
+        unit="ug"
+        start="350.23875"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 92 -->
+    <ScalarVariable
+      name="Fe_res_to_ferritin_norm"
+      valueReference="100663387"
+      variability="constant">
+      <Real start="350.23875"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 93 -->
+    <ScalarVariable
+      name="Fe_res_from_ferritin_norm"
+      valueReference="100663388"
+      variability="constant">
+      <Real start="350.23875"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 94 -->
+    <ScalarVariable
+      name="Fe_res_in_ser_norm"
+      valueReference="100663389"
+      description="Fe flow to other organs from serum - NORM"
+      variability="constant">
+      <Real start="9.563345"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 95 -->
+    <ScalarVariable
+      name="Fe_res_out_ser_norm"
+      valueReference="100663390"
+      description="Fe flow from other organs to serum - NORM"
+      variability="constant">
+      <Real start="8.00415"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 96 -->
+    <ScalarVariable
+      name="Fe_res_out_loss_norm"
+      valueReference="100663391"
+      description="Fe loss from other organs (skin peeling, etc.) - NORM"
+      variability="constant">
+      <Real start="1.559195"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 97 -->
+    <ScalarVariable
+      name="Fpn_res_in_1_norm"
+      valueReference="100663392"
+      description="Fpn in other organs creation: standard from mRNA - NORM"
+      variability="constant">
+      <Real start="0.0046672816"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 98 -->
+    <ScalarVariable
+      name="Fpn_res_in_2_norm"
+      valueReference="100663393"
+      description="Fpn in other organs creation by activation of Fe_res - NORM"
+      variability="constant">
+      <Real start="0.2478532"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 99 -->
+    <ScalarVariable
+      name="Fpn_res_out_1_norm"
+      valueReference="100663394"
+      description="Degradation (internalization) of Fpn in other organs: standard degradation rate - NORM"
+      variability="constant">
+      <Real start="0.028923023"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 100 -->
+    <ScalarVariable
+      name="Fpn_res_out_2_norm"
+      valueReference="100663395"
+      description="Degradation (internalization) of Fpn in other organs by hepcidine - NORM"
+      variability="constant">
+      <Real start="0.22359747"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 101 -->
+    <ScalarVariable
+      name="Fpn_res_in_norm"
+      valueReference="100663396"
+      description="Fpn in spleen synthesis - NORM"
+      variability="constant">
+      <Real start="0.2525204816"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 102 -->
+    <ScalarVariable
+      name="Fpn_res_out_norm"
+      valueReference="100663397"
+      description="Fpn in spleen degradation - NORM"
+      variability="constant">
+      <Real start="0.252520493"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 103 -->
+    <ScalarVariable
+      name="Fpn_res_mRNA_in_norm"
+      valueReference="100663398"
+      description="Fpn mRNA in other organs synthesis - NORM"
+      variability="constant">
+      <Real start="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 104 -->
+    <ScalarVariable
+      name="Fpn_res_mRNA_out_norm"
+      valueReference="100663399"
+      description="Fpn mRNA in other organs degradation - NORM"
+      variability="constant">
+      <Real start="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 105 -->
+    <ScalarVariable
+      name="Fpn_res_mRNA_inhib_norm"
+      valueReference="100663400"
+      description="Fpn mRNA in other organs production inhibition by IL-6 (or indirectly by LPS) - NORM"
+      variability="constant">
+      <Real start="0"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 106 -->
+    <ScalarVariable
+      name="Fe_bm_in_ser_norm"
+      valueReference="100663401"
+      description="Fe flow to bone marrow from serum - NORM"
+      variability="constant">
+      <Real start="4.2752566"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 107 -->
+    <ScalarVariable
+      name="Fe_bm_out_RBC_norm"
+      valueReference="100663402"
+      description="Fe flow from bone marrow to RBC - NORM"
+      variability="constant">
+      <Real start="3.663764"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 108 -->
+    <ScalarVariable
+      name="Fe_bm_out_spl_norm"
+      valueReference="100663403"
+      description="Fe flow from bone marrow to spleen - NORM"
+      variability="constant">
+      <Real start="0.61149263"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 109 -->
+    <ScalarVariable
+      name="Fe_RBC_in_bm_norm"
+      valueReference="100663404"
+      description="Fe flow to RBC from bone marrow - NORM"
+      variability="constant">
+      <Real start="3.663764"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 110 -->
+    <ScalarVariable
+      name="Fe_RBC_out_spl_norm"
+      valueReference="100663405"
+      description="Fe flow from RBC to spleen - NORM"
+      variability="constant">
+      <Real start="3.663764"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 111 -->
+    <ScalarVariable
+      name="hep_rel"
+      valueReference="1711276156"
+      description="Hepcidin amount (s16 ) - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 112 -->
+    <ScalarVariable
+      name="Bmp6_rel"
+      valueReference="1711276157"
+      description="Bmp6 amount (s18) - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 113 -->
+    <ScalarVariable
+      name="Fpn_liv_mRNA_rel"
+      valueReference="1711276158"
+      description="Fpn mRNA amount in liver (s7) - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 114 -->
+    <ScalarVariable
+      name="Fpn_spl_mRNA_rel"
+      valueReference="1711276159"
+      description="Fpn mRNA amount in spleen (s9) - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 115 -->
+    <ScalarVariable
+      name="Fpn_duo_mRNA_rel"
+      valueReference="1711276160"
+      description="Fpn mRNA amount in duodenum (s8) - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 116 -->
+    <ScalarVariable
+      name="Fpn_res_mRNA_rel"
+      valueReference="1711276161"
+      description="Fpn mRNA amount in other organs (s11) - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 117 -->
+    <ScalarVariable
+      name="Fpn_liv_rel"
+      valueReference="1711276162"
+      description="Fpn amount in liver (s12) - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 118 -->
+    <ScalarVariable
+      name="Fpn_spl_rel"
+      valueReference="1711276163"
+      description="Fpn amount in spleen (s14) - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 119 -->
+    <ScalarVariable
+      name="Fpn_duo_rel"
+      valueReference="1711276164"
+      description="Fpn amount in duodenum (s13) - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 120 -->
+    <ScalarVariable
+      name="Fpn_res_rel"
+      valueReference="1711276165"
+      description="Fpn amount in other organs (s15) - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 121 -->
+    <ScalarVariable
+      name="Fe_liv_rel"
+      valueReference="1711276166"
+      description="Fe amount in liver (s2) - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 122 -->
+    <ScalarVariable
+      name="Fe_spl_rel"
+      valueReference="1711276167"
+      description="Fe amount in spleen (s5) - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 123 -->
+    <ScalarVariable
+      name="Fe_bm_rel"
+      valueReference="1711276168"
+      description="Fe amount in bones (s3) - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 124 -->
+    <ScalarVariable
+      name="Fe_RBC_rel"
+      valueReference="1711276169"
+      description="Fe amount in red blood cells (s6) - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 125 -->
+    <ScalarVariable
+      name="Fe_duo_rel"
+      valueReference="1711276170"
+      description="Fe amount in duodenum (s4) - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 126 -->
+    <ScalarVariable
+      name="Fe_res_rel"
+      valueReference="1711276171"
+      description="Fe amount in other organs (s10) - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 127 -->
+    <ScalarVariable
+      name="Fe_ser_rel"
+      valueReference="1711276172"
+      description="Fe amount in serum (s1) - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 128 -->
+    <ScalarVariable
+      name="Fe_total_rel"
+      valueReference="1711276173"
+      description="Total Fe amount - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 129 -->
+    <ScalarVariable
+      name="Fe_ser_input_rel"
+      valueReference="1711276174"
+      description="Fe amount in serum: input - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 130 -->
+    <ScalarVariable
+      name="Fe_ser_output_rel"
+      valueReference="1711276175"
+      description="Fe amount in serum: output - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 131 -->
+    <ScalarVariable
+      name="Fe_duo_2_rel"
+      valueReference="1711276176"
+      description="Fe++ in duodenum - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 132 -->
+    <ScalarVariable
+      name="Fe_duo_3_rel"
+      valueReference="1711276177"
+      description="Fe+++ in duodenum, basically in ferritin - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 133 -->
+    <ScalarVariable
+      name="Fe_duo_to_ferritin_rel"
+      valueReference="1711276178">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 134 -->
+    <ScalarVariable
+      name="Fe_duo_from_ferritin_rel"
+      valueReference="1711276179">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 135 -->
+    <ScalarVariable
+      name="Fe_duo_intake_rel"
+      valueReference="100663406"
+      description="Fe intake from food - REL"
+      variability="tunable">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 136 -->
+    <ScalarVariable
+      name="Fe_duo_in_food_rel"
+      valueReference="1711276180"
+      description="Fe input to duodenum from intestines, prev:in_1 - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 137 -->
+    <ScalarVariable
+      name="Fe_duo_in_ser_rel"
+      valueReference="1711276181"
+      description="Fe input to duodenum from serum, prev:in_2 - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 138 -->
+    <ScalarVariable
+      name="Fe_duo_out_ser_rel"
+      valueReference="1711276182"
+      description="Fe output from duodenum to serum, prev:out_1 - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 139 -->
+    <ScalarVariable
+      name="Fe_duo_out_loss_rel"
+      valueReference="1711276183"
+      description="Fe output from duodenum to intestines (Fe loss), prev:out_2 - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 140 -->
+    <ScalarVariable
+      name="Fe_duo_unused_rel"
+      valueReference="1711276184"
+      description="Unused Fe going through intestines - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 141 -->
+    <ScalarVariable
+      name="Fpn_duo_in_1_rel"
+      valueReference="1711276185"
+      description="Fpn in duodenum creation: standard from mRNA - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 142 -->
+    <ScalarVariable
+      name="Fpn_duo_in_2_rel"
+      valueReference="1711276186"
+      description="Fpn in duodenum creation by activation of Fe_duo - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 143 -->
+    <ScalarVariable
+      name="Fpn_duo_out_1_rel"
+      valueReference="1711276187"
+      description="Degradation (internalization) of Fpn in duodenum: standard degradation rate - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 144 -->
+    <ScalarVariable
+      name="Fpn_duo_out_2_rel"
+      valueReference="1711276188"
+      description="Degradation (internalization) of Fpn in duodenum by hepcidine - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 145 -->
+    <ScalarVariable
+      name="Fpn_duo_in_rel"
+      valueReference="1711276189"
+      description="Fpn in duodenum synthesis - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 146 -->
+    <ScalarVariable
+      name="Fpn_duo_out_rel"
+      valueReference="1711276190"
+      description="Fpn in duodenum degradation - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 147 -->
+    <ScalarVariable
+      name="Fpn_duo_mRNA_in_rel"
+      valueReference="1174405279"
+      description="Fpn mRNA in duodenum synthesis - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 148 -->
+    <ScalarVariable
+      name="Fpn_duo_mRNA_out_rel"
+      valueReference="1174405280"
+      description="Fpn mRNA in duodenum degradation - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 149 -->
+    <ScalarVariable
+      name="Fe_liv_2_rel"
+      valueReference="1711276193"
+      description="Fe++ in liver - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 150 -->
+    <ScalarVariable
+      name="Fe_liv_3_rel"
+      valueReference="1711276194"
+      description="Fe+++ in liver, basically in ferritin - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 151 -->
+    <ScalarVariable
+      name="Fe_liv_to_ferritin_rel"
+      valueReference="1711276195">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 152 -->
+    <ScalarVariable
+      name="Fe_liv_from_ferritin_rel"
+      valueReference="1711276196">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 153 -->
+    <ScalarVariable
+      name="Fe_liv_in_ser_rel"
+      valueReference="1711276197"
+      description="Fe input to liver from serum - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 154 -->
+    <ScalarVariable
+      name="Fe_liv_out_ser_rel"
+      valueReference="1711276198"
+      description="Fe output from liver to serum - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 155 -->
+    <ScalarVariable
+      name="Fpn_liv_in_1_rel"
+      valueReference="1711276199"
+      description="Fpn in liver creation: standard from mRNA - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 156 -->
+    <ScalarVariable
+      name="Fpn_liv_in_2_rel"
+      valueReference="1711276200"
+      description="Fpn in liver creation by activation of Fe_liv - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 157 -->
+    <ScalarVariable
+      name="Fpn_liv_out_1_rel"
+      valueReference="1711276201"
+      description="Degradation (internalization) of Fpn in liver: standard degradation rate - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 158 -->
+    <ScalarVariable
+      name="Fpn_liv_out_2_rel"
+      valueReference="1711276202"
+      description="Degradation (internalization) of Fpn in liver by hepcidine - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 159 -->
+    <ScalarVariable
+      name="Fpn_liv_in_rel"
+      valueReference="1711276203"
+      description="Fpn in liver synthesis - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 160 -->
+    <ScalarVariable
+      name="Fpn_liv_out_rel"
+      valueReference="1711276204"
+      description="Fpn in liver degradation - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 161 -->
+    <ScalarVariable
+      name="Fpn_liv_mRNA_in_rel"
+      valueReference="1174405293"
+      description="Fpn mRNA in liver synthesis - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 162 -->
+    <ScalarVariable
+      name="Fpn_liv_mRNA_out_rel"
+      valueReference="1174405294"
+      description="Fpn mRNA in liver degradation - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 163 -->
+    <ScalarVariable
+      name="Fe_ser_in_liv_rel"
+      valueReference="1711276207"
+      description="Fe flow from liver to serum - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 164 -->
+    <ScalarVariable
+      name="Fe_ser_in_spl_rel"
+      valueReference="1711276208"
+      description="Fe flow from spleen to serum - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 165 -->
+    <ScalarVariable
+      name="Fe_ser_in_duo_rel"
+      valueReference="1711276209"
+      description="Fe flow from duodenum to serum - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 166 -->
+    <ScalarVariable
+      name="Fe_ser_in_res_rel"
+      valueReference="1711276210"
+      description="Fe flow from other organs to serum - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 167 -->
+    <ScalarVariable
+      name="Fe_ser_out_liv_rel"
+      valueReference="1711276211"
+      description="Fe flow from serum to liver - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 168 -->
+    <ScalarVariable
+      name="Fe_ser_out_bm_rel"
+      valueReference="1711276212"
+      description="Fe flow from serum to bone marrow - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 169 -->
+    <ScalarVariable
+      name="Fe_ser_out_duo_rel"
+      valueReference="1711276213"
+      description="Fe flow from serum to duodenum - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 170 -->
+    <ScalarVariable
+      name="Fe_ser_out_res_rel"
+      valueReference="1711276214"
+      description="Fe flow from serum to other organs - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 171 -->
+    <ScalarVariable
+      name="hep_in_rel"
+      valueReference="1711276215"
+      description="Production of hepcidin - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 172 -->
+    <ScalarVariable
+      name="hep_out_rel"
+      valueReference="1711276216"
+      description="Degradation of hepcidin - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 173 -->
+    <ScalarVariable
+      name="Bmp6_in_rel"
+      valueReference="1711276217"
+      description="Bmp6 production rate - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 174 -->
+    <ScalarVariable
+      name="Bmp6_out_rel"
+      valueReference="1711276218"
+      description="Bmp6 degradation rate - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 175 -->
+    <ScalarVariable
+      name="Fe_spl_2_rel"
+      valueReference="1711276219"
+      description="Fe++ in spleen - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 176 -->
+    <ScalarVariable
+      name="Fe_spl_3_rel"
+      valueReference="1711276220"
+      description="Fe++ in spleen - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 177 -->
+    <ScalarVariable
+      name="Fe_spl_to_ferritin_rel"
+      valueReference="1711276221">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 178 -->
+    <ScalarVariable
+      name="Fe_spl_from_ferritin_rel"
+      valueReference="1711276222">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 179 -->
+    <ScalarVariable
+      name="Fe_spl_in_RBC_rel"
+      valueReference="1711276223"
+      description="Fe flow to spleen from RBC - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 180 -->
+    <ScalarVariable
+      name="Fe_spl_in_bm_rel"
+      valueReference="1711276224"
+      description="Fe flow to spleen from bone marrow - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 181 -->
+    <ScalarVariable
+      name="Fe_spl_out_ser_rel"
+      valueReference="1711276225"
+      description="Fe flow from spleen to serum - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 182 -->
+    <ScalarVariable
+      name="Fpn_spl_in_1_rel"
+      valueReference="1711276226"
+      description="Fpn in spleen creation: standard from mRNA - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 183 -->
+    <ScalarVariable
+      name="Fpn_spl_in_2_rel"
+      valueReference="1711276227"
+      description="Fpn in spleen creation by activation of Fe_spl - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 184 -->
+    <ScalarVariable
+      name="Fpn_spl_out_1_rel"
+      valueReference="1711276228"
+      description="Degradation (internalization) of Fpn in spleen: standard degradation rate - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 185 -->
+    <ScalarVariable
+      name="Fpn_spl_out_2_rel"
+      valueReference="1711276229"
+      description="Degradation (internalization) of Fpn in spleen by hepcidine - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 186 -->
+    <ScalarVariable
+      name="Fpn_spl_in_rel"
+      valueReference="1711276230"
+      description="Fpn in spleen synthesis - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 187 -->
+    <ScalarVariable
+      name="Fpn_spl_out_rel"
+      valueReference="1711276231"
+      description="Fpn in spleen degradation - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 188 -->
+    <ScalarVariable
+      name="Fpn_spl_mRNA_in_rel"
+      valueReference="1174405320"
+      description="Fpn mRNA in spleen synthesis - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 189 -->
+    <ScalarVariable
+      name="Fpn_spl_mRNA_out_rel"
+      valueReference="1174405321"
+      description="Fpn mRNA in spleen degradation - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 190 -->
+    <ScalarVariable
+      name="Fe_res_2_rel"
+      valueReference="1711276234"
+      description="Fe++ in other organs - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 191 -->
+    <ScalarVariable
+      name="Fe_res_3_rel"
+      valueReference="1711276235"
+      description="Fe++ in other organs - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 192 -->
+    <ScalarVariable
+      name="Fe_res_to_ferritin_rel"
+      valueReference="1711276236">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 193 -->
+    <ScalarVariable
+      name="Fe_res_from_ferritin_rel"
+      valueReference="1711276237">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 194 -->
+    <ScalarVariable
+      name="Fe_res_in_ser_rel"
+      valueReference="1711276238"
+      description="Fe flow to other organs from serum - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 195 -->
+    <ScalarVariable
+      name="Fe_res_out_ser_rel"
+      valueReference="1711276239"
+      description="Fe flow from other organs to serum - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 196 -->
+    <ScalarVariable
+      name="Fe_res_out_loss_rel"
+      valueReference="1711276240"
+      description="Fe loss from other organs (skin peeling, etc.) - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 197 -->
+    <ScalarVariable
+      name="Fpn_res_in_1_rel"
+      valueReference="1711276241"
+      description="Fpn in other organs creation: standard from mRNA - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 198 -->
+    <ScalarVariable
+      name="Fpn_res_in_2_rel"
+      valueReference="1711276242"
+      description="Fpn in other organs creation by activation of Fe_res - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 199 -->
+    <ScalarVariable
+      name="Fpn_res_out_1_rel"
+      valueReference="1711276243"
+      description="Degradation (internalization) of Fpn in other organs: standard degradation rate - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 200 -->
+    <ScalarVariable
+      name="Fpn_res_out_2_rel"
+      valueReference="1711276244"
+      description="Degradation (internalization) of Fpn in other organs by hepcidine - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 201 -->
+    <ScalarVariable
+      name="Fpn_res_in_rel"
+      valueReference="1711276245"
+      description="Fpn in spleen synthesis - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 202 -->
+    <ScalarVariable
+      name="Fpn_res_out_rel"
+      valueReference="1711276246"
+      description="Fpn in spleen degradation - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 203 -->
+    <ScalarVariable
+      name="Fpn_res_mRNA_in_rel"
+      valueReference="1174405335"
+      description="Fpn mRNA in other organs synthesis - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 204 -->
+    <ScalarVariable
+      name="Fpn_res_mRNA_out_rel"
+      valueReference="1174405336"
+      description="Fpn mRNA in other organs degradation - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 205 -->
+    <ScalarVariable
+      name="Fe_bm_in_ser_rel"
+      valueReference="1711276249"
+      description="Fe flow to bone marrow from serum - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 206 -->
+    <ScalarVariable
+      name="Fe_bm_out_RBC_rel"
+      valueReference="1711276250"
+      description="Fe flow from bone marrow to RBC - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 207 -->
+    <ScalarVariable
+      name="Fe_bm_out_spl_rel"
+      valueReference="1711276251"
+      description="Fe flow from bone marrow to spleen - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 208 -->
+    <ScalarVariable
+      name="Fe_RBC_in_bm_rel"
+      valueReference="1711276252"
+      description="Fe flow to RBC from bone marrow - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 209 -->
+    <ScalarVariable
+      name="Fe_RBC_out_spl_rel"
+      valueReference="1711276253"
+      description="Fe flow from RBC to spleen - REL">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 210 -->
+    <ScalarVariable
+      name="hep_regulation"
+      valueReference="16777216"
+      description="Hepcidin regulation: 1 - auto, 0 - manual"
+      causality="parameter"
+      variability="tunable">
+      <Real start="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 211 -->
+    <ScalarVariable
+      name="hep_manual"
+      valueReference="16777217"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="ug"
+        start="0.664938"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 212 -->
+    <ScalarVariable
+      name="hep_auto"
+      valueReference="33554432">
+      <Real
+        unit="ug"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 213 -->
+    <ScalarVariable
+      name="der(hep_auto)"
+      valueReference="1124073472">
+      <Real
+        unit="ug/s"
+        derivative="212"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 214 -->
+    <ScalarVariable
+      name="hep_regulation_switcher"
+      valueReference="100663407"
+      variability="tunable">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 215 -->
+    <ScalarVariable
+      name="hep"
+      valueReference="1174405342"
+      description="Hepcidin amount (s16 )"
+      initial="approx">
+      <Real
+        unit="ug"
+        start="0.664938"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 216 -->
+    <ScalarVariable
+      name="Bmp6"
+      valueReference="33554433"
+      description="Bmp6 amount (s18)"
+      initial="approx">
+      <Real
+        unit="ug"
+        start="15.8291"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 217 -->
+    <ScalarVariable
+      name="der(Bmp6)"
+      valueReference="1124073473"
+      description="der(Bmp6 amount (s18))">
+      <Real
+        unit="ug/s"
+        derivative="216"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 218 -->
+    <ScalarVariable
+      name="LPS"
+      valueReference="33554434"
+      description="LPS (Lipopolysaccharide) amount (s23)"
+      initial="exact">
+      <Real
+        unit="ug"
+        start="0.0"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 219 -->
+    <ScalarVariable
+      name="der(LPS)"
+      valueReference="1124073474"
+      description="der(LPS (Lipopolysaccharide) amount (s23))">
+      <Real
+        unit="ug/s"
+        derivative="218"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 220 -->
+    <ScalarVariable
+      name="Il6mRNA"
+      valueReference="33554435"
+      description="IL-6 mRNA amount (s21)">
+      <Real
+        unit="ug"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 221 -->
+    <ScalarVariable
+      name="der(Il6mRNA)"
+      valueReference="1124073475"
+      description="der(IL-6 mRNA amount (s21))">
+      <Real
+        unit="ug/s"
+        derivative="220"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 222 -->
+    <ScalarVariable
+      name="Il6"
+      valueReference="33554436"
+      description="IL-L amount (s22)">
+      <Real
+        unit="ug"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 223 -->
+    <ScalarVariable
+      name="der(Il6)"
+      valueReference="1124073476"
+      description="der(IL-L amount (s22))">
+      <Real
+        unit="ug/s"
+        derivative="222"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 224 -->
+    <ScalarVariable
+      name="Fpn_liv_mRNA"
+      valueReference="33554437"
+      description="Fpn mRNA amount in liver (s7)">
+      <Real
+        unit="ug"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 225 -->
+    <ScalarVariable
+      name="der(Fpn_liv_mRNA)"
+      valueReference="1124073477"
+      description="der(Fpn mRNA amount in liver (s7))">
+      <Real
+        unit="ug/s"
+        derivative="224"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 226 -->
+    <ScalarVariable
+      name="Fpn_spl_mRNA"
+      valueReference="33554438"
+      description="Fpn mRNA amount in spleen (s9)">
+      <Real
+        unit="ug"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 227 -->
+    <ScalarVariable
+      name="der(Fpn_spl_mRNA)"
+      valueReference="1124073478"
+      description="der(Fpn mRNA amount in spleen (s9))">
+      <Real
+        unit="ug/s"
+        derivative="226"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 228 -->
+    <ScalarVariable
+      name="Fpn_duo_mRNA"
+      valueReference="33554439"
+      description="Fpn mRNA amount in duodenum (s8)">
+      <Real
+        unit="ug"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 229 -->
+    <ScalarVariable
+      name="der(Fpn_duo_mRNA)"
+      valueReference="1124073479"
+      description="der(Fpn mRNA amount in duodenum (s8))">
+      <Real
+        unit="ug/s"
+        derivative="228"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 230 -->
+    <ScalarVariable
+      name="Fpn_res_mRNA"
+      valueReference="33554440"
+      description="Fpn mRNA amount in other organs (s11)">
+      <Real
+        unit="ug"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 231 -->
+    <ScalarVariable
+      name="der(Fpn_res_mRNA)"
+      valueReference="1124073480"
+      description="der(Fpn mRNA amount in other organs (s11))">
+      <Real
+        unit="ug/s"
+        derivative="230"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 232 -->
+    <ScalarVariable
+      name="Fpn_liv"
+      valueReference="33554441"
+      description="Fpn amount in liver (s12)"
+      initial="approx">
+      <Real
+        unit="ug"
+        start="1.00036"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 233 -->
+    <ScalarVariable
+      name="der(Fpn_liv)"
+      valueReference="1124073481"
+      description="der(Fpn amount in liver (s12))">
+      <Real
+        unit="ug/s"
+        derivative="232"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 234 -->
+    <ScalarVariable
+      name="Fpn_spl"
+      valueReference="33554442"
+      description="Fpn amount in spleen (s14)"
+      initial="approx">
+      <Real
+        unit="ug"
+        start="1.00049"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 235 -->
+    <ScalarVariable
+      name="der(Fpn_spl)"
+      valueReference="1124073482"
+      description="der(Fpn amount in spleen (s14))">
+      <Real
+        unit="ug/s"
+        derivative="234"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 236 -->
+    <ScalarVariable
+      name="Fpn_duo"
+      valueReference="33554443"
+      description="Fpn amount in duodenum (s13)"
+      initial="approx">
+      <Real
+        unit="ug"
+        start="1.00017"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 237 -->
+    <ScalarVariable
+      name="der(Fpn_duo)"
+      valueReference="1124073483"
+      description="der(Fpn amount in duodenum (s13))">
+      <Real
+        unit="ug/s"
+        derivative="236"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 238 -->
+    <ScalarVariable
+      name="Fpn_res"
+      valueReference="33554444"
+      description="Fpn amount in other organs (s15)"
+      initial="approx">
+      <Real
+        unit="ug"
+        start="1.0002"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 239 -->
+    <ScalarVariable
+      name="der(Fpn_res)"
+      valueReference="1124073484"
+      description="der(Fpn amount in other organs (s15))">
+      <Real
+        unit="ug/s"
+        derivative="238"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 240 -->
+    <ScalarVariable
+      name="Fe_liv"
+      valueReference="1174405343"
+      description="Fe amount in liver (s2)">
+      <Real
+        unit="ug"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 241 -->
+    <ScalarVariable
+      name="Fe_spl"
+      valueReference="1174405344"
+      description="Fe amount in spleen (s5)">
+      <Real
+        unit="ug"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 242 -->
+    <ScalarVariable
+      name="Fe_bm"
+      valueReference="33554445"
+      description="Fe amount in bones (s3)"
+      initial="approx">
+      <Real
+        unit="ug"
+        start="63.1596"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 243 -->
+    <ScalarVariable
+      name="der(Fe_bm)"
+      valueReference="1124073485"
+      description="der(Fe amount in bones (s3))">
+      <Real
+        unit="ug/s"
+        derivative="242"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 244 -->
+    <ScalarVariable
+      name="Fe_RBC"
+      valueReference="33554446"
+      description="Fe amount in red blood cells (s6)"
+      initial="approx">
+      <Real
+        unit="ug"
+        start="1016.72"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 245 -->
+    <ScalarVariable
+      name="der(Fe_RBC)"
+      valueReference="1124073486"
+      description="der(Fe amount in red blood cells (s6))">
+      <Real
+        unit="ug/s"
+        derivative="244"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 246 -->
+    <ScalarVariable
+      name="Fe_duo"
+      valueReference="1174405345"
+      description="Fe amount in duodenum (s4)">
+      <Real
+        unit="ug"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 247 -->
+    <ScalarVariable
+      name="Fe_res"
+      valueReference="1174405346"
+      description="Fe amount in other organs (s10)">
+      <Real
+        unit="ug"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 248 -->
+    <ScalarVariable
+      name="Fe_ser"
+      valueReference="33554447"
+      description="Fe amount in serum (s1)"
+      initial="approx">
+      <Real
+        unit="ug"
+        start="1.51304"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 249 -->
+    <ScalarVariable
+      name="der(Fe_ser)"
+      valueReference="1124073487"
+      description="der(Fe amount in serum (s1))">
+      <Real
+        unit="ug/s"
+        derivative="248"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 250 -->
+    <ScalarVariable
+      name="Fe_total"
+      valueReference="1711276259"
+      description="Total Fe amount">
+      <Real
+        unit="ug"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 251 -->
+    <ScalarVariable
+      name="Fe_ser_input"
+      valueReference="1174405348"
+      description="Fe amount in serum: input">
+      <Real
+        unit="ug.h-1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 252 -->
+    <ScalarVariable
+      name="Fe_ser_output"
+      valueReference="1174405349"
+      description="Fe amount in serum: output">
+      <Real
+        unit="ug.h-1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 253 -->
+    <ScalarVariable
+      name="k_hep_deg"
+      valueReference="16777218"
+      description="Hepcidin degradation rate (k20), 0.067/0.070"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="h-1"
+        start="0.07"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 254 -->
+    <ScalarVariable
+      name="K_Bmp6"
+      valueReference="16777219"
+      description="Michaelis-Menten constant Bmp6 synthesis (k37), 16.5/55.7"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="ug"
+        start="19.65"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 255 -->
+    <ScalarVariable
+      name="v_Bmp6_max"
+      valueReference="100663408"
+      description="Bmp6 maximal synthesis rate (k21*k37 = k21*K_Bmp6) k21 = 1.6015, K_Bmp6 = 19.65, 14.2/126.5"
+      variability="tunable">
+      <Real
+        unit="h-1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 256 -->
+    <ScalarVariable
+      name="Tf"
+      valueReference="16777220"
+      description="Paremeter determining the maximal amount of iron that can be bound to transferrin (k32)"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="ug"
+        start="1000.0"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 257 -->
+    <ScalarVariable
+      name="k_Bmp6_deg"
+      valueReference="16777221"
+      description="Bmp6 degradation rate (k22), 1.0/9.5"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="h-1"
+        start="2.3962"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 258 -->
+    <ScalarVariable
+      name="k_LPS_deg"
+      valueReference="16777222"
+      description="LPS degradation rate, 5.9/5.9"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="h-1"
+        start="5.856"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 259 -->
+    <ScalarVariable
+      name="K_Il6mRNA"
+      valueReference="16777223"
+      description="Michaelis-Menten constant Il6mRNA synthesis, 2.6-e6/2.6e-6"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="ug"
+        start="2.6E-06"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 260 -->
+    <ScalarVariable
+      name="k_Il6mRNA_deg"
+      valueReference="16777224"
+      description="Il6mRNA degradation rate, 0.28/0.28"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="h-1"
+        start="0.2814"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 261 -->
+    <ScalarVariable
+      name="k_Il6_syn"
+      valueReference="16777225"
+      description="Il6 synthesis rate, 4.1067*k23, k23 = 157.4, 136/872"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="h-1"
+        start="646.39458"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 262 -->
+    <ScalarVariable
+      name="k_Il6_deg"
+      valueReference="16777226"
+      description="Il6 degradation rate, 4.45/4.45"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="h-1"
+        start="4.4465"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 263 -->
+    <ScalarVariable
+      name="K_2"
+      valueReference="16777227"
+      description="Constant FpnmRNA production (k41), 3.0e-4/2.0e-3"
+      causality="parameter"
+      variability="tunable">
+      <Real start="0.0012836"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 264 -->
+    <ScalarVariable
+      name="k_FpnmRNA_deg"
+      valueReference="16777228"
+      description="FpnmRNA degradation rate (k25), 1.02/1.20"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="h-1"
+        start="1.0841"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 265 -->
+    <ScalarVariable
+      name="K_liv_1"
+      valueReference="16777229"
+      description="Constant Fpn_liv_mRNA production (k24), 28.0/32.5"
+      causality="parameter"
+      variability="tunable">
+      <Real start="30.66"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 266 -->
+    <ScalarVariable
+      name="K_spl_1"
+      valueReference="100663409"
+      description="Constant Fpn_spl_mRNA production (k36*K_liv_1, k36 = 1.086700), 33.1/34.5"
+      variability="tunable">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 267 -->
+    <ScalarVariable
+      name="K_duo_1"
+      valueReference="100663410"
+      description="Constant Fpn_duo_mRNA production (k35*K_liv_1, k35 = 0.020001), 0.56/0.79"
+      variability="tunable">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 268 -->
+    <ScalarVariable
+      name="K_res_1"
+      valueReference="100663411"
+      description="Constant Fpn_res_mRNA production (k42*K_liv_1, k42 = 0.366290), 7.80/43.7"
+      variability="tunable">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 269 -->
+    <ScalarVariable
+      name="k_Fpnliv_syn"
+      valueReference="16777230"
+      description="Fpnliv synthesis rate (k28), 0.07/0.14"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="h-1"
+        start="0.1297"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 270 -->
+    <ScalarVariable
+      name="k_Fpnspl_syn"
+      valueReference="16777231"
+      description="Fpnspl synthesis rate (k30), 0.015/0.027"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="h-1"
+        start="0.022722"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 271 -->
+    <ScalarVariable
+      name="k_Fpnduo_syn"
+      valueReference="16777232"
+      description="Fpnduo synthesis rate (k29), 0.01/0.25"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="h-1"
+        start="0.030299"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 272 -->
+    <ScalarVariable
+      name="k_Fpnres_syn"
+      valueReference="16777233"
+      description="Fpnres synthesis rate (k40), 0.004/0.108"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="h-1"
+        start="0.0050598"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 273 -->
+    <ScalarVariable
+      name="k_liv_1"
+      valueReference="16777234"
+      description="Constant Fpn_liv production (k17), 0.002/0.006"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="ug-1"
+        start="0.0033177"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 274 -->
+    <ScalarVariable
+      name="k_spl_1"
+      valueReference="16777235"
+      description="Constant Fpn_spl production (k27), 0.005/0.028"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="ug-1"
+        start="0.014027"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 275 -->
+    <ScalarVariable
+      name="k_duo_1"
+      valueReference="16777236"
+      description="Constant Fpn_duo production (k46), 0.06/0.49"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="ug-1"
+        start="0.16007"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 276 -->
+    <ScalarVariable
+      name="k_res_1"
+      valueReference="16777237"
+      description="Constant Fpn_res production (k47), 0.004/0.152"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="ug-1"
+        start="0.11376"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 277 -->
+    <ScalarVariable
+      name="k_Fpnliv_deg"
+      valueReference="16777238"
+      description="Fpnliv degradation rate (k12), 0.01/0.06"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="h-1"
+        start="0.055363"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 278 -->
+    <ScalarVariable
+      name="k_Fpnspl_deg"
+      valueReference="100663412"
+      description="Fpnspl degradation rate (k12*k18, k18 = 0.054621), 0.0007/0.0038"
+      variability="tunable">
+      <Real
+        unit="h-1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 279 -->
+    <ScalarVariable
+      name="k_Fpnduo_deg"
+      valueReference="100663413"
+      description="Fpnduo degradation rate (k12*k15, k15 = 0.3815), 0.0056/0.147"
+      variability="tunable">
+      <Real
+        unit="h-1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 280 -->
+    <ScalarVariable
+      name="k_Fpnres_deg"
+      valueReference="100663414"
+      description="Fpnres degradation rate (k12*k38, k38 = 0.52232), 0.025/0.129"
+      variability="tunable">
+      <Real
+        unit="h-1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 281 -->
+    <ScalarVariable
+      name="k_liv_2"
+      valueReference="16777239"
+      description="Constant Fpnliv degradation (k13), 2.11/12.93"
+      causality="parameter"
+      variability="tunable">
+      <Real start="2.5743"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 282 -->
+    <ScalarVariable
+      name="k_spl_2"
+      valueReference="100663415"
+      description="Constant Fpnspl degradation (k13*k19, k19 = 4.4694), 9.2/73.7"
+      variability="tunable">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 283 -->
+    <ScalarVariable
+      name="k_duo_2"
+      valueReference="100663416"
+      description="Constant Fpnduo degradation (k13*k16, k16 = 0.55631), 0.78/4.16"
+      variability="tunable">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 284 -->
+    <ScalarVariable
+      name="k_res_2"
+      valueReference="100663417"
+      description="Constant Fpnres degradation (k13*k39, k39 = 4.5163), 3.7/38.1"
+      variability="tunable">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 285 -->
+    <ScalarVariable
+      name="v_liv_1"
+      valueReference="16777240"
+      description="Low liver iron uptake (k4), 2.78/9.81"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="ug.h-1"
+        start="3.9607"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 286 -->
+    <ScalarVariable
+      name="v_liv_2"
+      valueReference="16777241"
+      description="High liver iron uptake (k45)"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="ug.h-1"
+        start="14.381"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 287 -->
+    <ScalarVariable
+      name="th"
+      valueReference="16777242"
+      description="Threshold serum iron value (k26), 2.08/3.00"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="ug"
+        start="2.687"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 288 -->
+    <ScalarVariable
+      name="u_liv"
+      valueReference="16777243"
+      description="Liver iron export rate (k1), 0.05/0.19"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="h-1"
+        start="0.077844"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 289 -->
+    <ScalarVariable
+      name="Fe_liv_max"
+      valueReference="16777244"
+      description="Threshold value liver iron export (k43), 100.0/159.0"
+      causality="parameter"
+      variability="tunable">
+      <Real start="119.55"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 290 -->
+    <ScalarVariable
+      name="v_spl_1"
+      valueReference="16777245"
+      description="Spleen iron uptake rate from RBC (k10), 0.002 = value for trace exp., 0.004/0.005"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="h-1"
+        start="0.0036035"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 291 -->
+    <ScalarVariable
+      name="v_spl_2"
+      valueReference="16777246"
+      description="Spleen iron uptake rate from bones (k7), 0.008/0.019"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="h-1"
+        start="0.0096817"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 292 -->
+    <ScalarVariable
+      name="u_spl"
+      valueReference="16777247"
+      description="Spleen export rate (k3), 0.21/0.36"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="h-1"
+        start="0.24102"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 293 -->
+    <ScalarVariable
+      name="Fe_spl_max"
+      valueReference="16777248"
+      description="Threshold value spleen iron export (k44), 57.0/95.0"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="ug"
+        start="88.216"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 294 -->
+    <ScalarVariable
+      name="v_bm"
+      valueReference="16777249"
+      description="Bone marrow uptake rate (k5), 2.66/4.16"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="h-1"
+        start="2.8256"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 295 -->
+    <ScalarVariable
+      name="v_RBC"
+      valueReference="16777250"
+      description="RBC uptake rate (k8), 0.055/0.075"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="h-1"
+        start="0.058008"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 296 -->
+    <ScalarVariable
+      name="k14"
+      valueReference="16777251"
+      description="k14 constant"
+      causality="parameter"
+      variability="fixed">
+      <Real
+        unit="1"
+        start="0.19419"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 297 -->
+    <ScalarVariable
+      name="k31"
+      valueReference="16777252"
+      description="k31 constant"
+      causality="parameter"
+      variability="fixed">
+      <Real
+        unit="1"
+        start="33.333"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 298 -->
+    <ScalarVariable
+      name="K_duo"
+      valueReference="16777253"
+      description="Saturation parameter duodenal uptake, corresponds to k11, units??"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="ug.h-1"
+        start="177.34"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 299 -->
+    <ScalarVariable
+      name="v_duo"
+      valueReference="16777254"
+      description="Duodenal uptake rate from blood (k6), 0.6/1.3"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="h-1"
+        start="0.70485"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 300 -->
+    <ScalarVariable
+      name="u_duo"
+      valueReference="16777255"
+      description="Duodenal export rate (k2), 0.66/1.38"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="h-1"
+        start="0.88356"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 301 -->
+    <ScalarVariable
+      name="v_res"
+      valueReference="16777256"
+      description="Other organs uptake rate (k34), 5.4/10.0"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="h-1"
+        start="6.3206"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 302 -->
+    <ScalarVariable
+      name="u_res"
+      valueReference="16777257"
+      description="Other organs export rate (k33), 0.014/0.030"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="h-1"
+        start="0.017143"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 303 -->
+    <ScalarVariable
+      name="v_duo_lost"
+      valueReference="16777258"
+      description="Iron lost rate duodenum (k48), 0.001/0.320"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="h-1"
+        start="0.091919"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 304 -->
+    <ScalarVariable
+      name="u_res_lost"
+      valueReference="16777259"
+      description="Iron lost rate rest (k9), 0.002/0.004"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="h-1"
+        start="0.0033401"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 305 -->
+    <ScalarVariable
+      name="Fe_res_max"
+      valueReference="16777260"
+      description="Limit value, iron lost rest (k49), 510/947"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="ug"
+        start="510.68"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 306 -->
+    <ScalarVariable
+      name="v_duo_max"
+      valueReference="16777261"
+      description="Maximal duodenal uptake from food (SI. Eq.14)"
+      causality="parameter"
+      variability="tunable">
+      <Real start="9.86"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 307 -->
+    <ScalarVariable
+      name="Fe_food"
+      valueReference="16777262"
+      description="Food iron content (SI. Eq.14), default: 218.6322"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="ug.h-1"
+        start="218.6322"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 308 -->
+    <ScalarVariable
+      name="bleeding"
+      valueReference="16777263"
+      description="Bleeding, to be set"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="ug.h-1"
+        start="0"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 309 -->
+    <ScalarVariable
+      name="malabsorption"
+      valueReference="16777264"
+      description="iron malabsorption coefficient: &lt;0;1&gt;; 0 = no absorption, 1 = physiologic"
+      causality="parameter"
+      variability="tunable">
+      <Real start="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 310 -->
+    <ScalarVariable
+      name="loss_factor"
+      valueReference="16777265"
+      description="iron loss factor, 1 = physiologic, &gt;1 enhanced loss"
+      causality="parameter"
+      variability="tunable">
+      <Real start="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 311 -->
+    <ScalarVariable
+      name="transfusion"
+      valueReference="16777266"
+      description="transfusion rate, to be set"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="ug.h-1"
+        start="0"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 312 -->
+    <ScalarVariable
+      name="unregulated_absorption"
+      valueReference="16777267"
+      causality="parameter"
+      variability="tunable">
+      <Boolean start="false"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 313 -->
+    <ScalarVariable
+      name="hep_knockout"
+      valueReference="16777268"
+      causality="parameter"
+      variability="tunable">
+      <Real start="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 314 -->
+    <ScalarVariable
+      name="Fpn_duo_knockout"
+      valueReference="16777269"
+      causality="parameter"
+      variability="tunable">
+      <Real start="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 315 -->
+    <ScalarVariable
+      name="Fpn_liv_knockout"
+      valueReference="16777270"
+      causality="parameter"
+      variability="tunable">
+      <Real start="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 316 -->
+    <ScalarVariable
+      name="Fpn_spl_knockout"
+      valueReference="16777271"
+      causality="parameter"
+      variability="tunable">
+      <Real start="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 317 -->
+    <ScalarVariable
+      name="Fpn_res_knockout"
+      valueReference="16777272"
+      causality="parameter"
+      variability="tunable">
+      <Real start="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 318 -->
+    <ScalarVariable
+      name="to_ferritin_rate"
+      valueReference="16777273"
+      description="rate of flow Fe++ -&gt; Fe+++"
+      causality="parameter"
+      variability="tunable">
+      <Real start="3"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 319 -->
+    <ScalarVariable
+      name="from_ferritin_rate"
+      valueReference="100663418"
+      description="rate of flow Fe+++ -&gt; Fe++"
+      variability="tunable">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 320 -->
+    <ScalarVariable
+      name="Fe_duo_2"
+      valueReference="33554448"
+      description="Fe++ in duodenum"
+      initial="approx">
+      <Real
+        unit="ug"
+        start="0.7427"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 321 -->
+    <ScalarVariable
+      name="der(Fe_duo_2)"
+      valueReference="1124073488"
+      description="der(Fe++ in duodenum)">
+      <Real
+        unit="ug/s"
+        derivative="320"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 322 -->
+    <ScalarVariable
+      name="Fe_duo_3"
+      valueReference="33554449"
+      description="Fe+++ in duodenum, basically in ferritin"
+      initial="approx">
+      <Real
+        unit="ug"
+        start="2.2283"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 323 -->
+    <ScalarVariable
+      name="der(Fe_duo_3)"
+      valueReference="1124073489"
+      description="der(Fe+++ in duodenum, basically in ferritin)">
+      <Real
+        unit="ug/s"
+        derivative="322"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 324 -->
+    <ScalarVariable
+      name="Fe_duo_to_ferritin"
+      valueReference="1174405350">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 325 -->
+    <ScalarVariable
+      name="Fe_duo_from_ferritin"
+      valueReference="1174405351">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 326 -->
+    <ScalarVariable
+      name="Fe_duo_intake"
+      valueReference="100663419"
+      description="Fe intake from food"
+      variability="tunable">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 327 -->
+    <ScalarVariable
+      name="Fe_duo_in_food"
+      valueReference="1174405352"
+      description="Fe input to duodenum from intestines, prev:in_1">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 328 -->
+    <ScalarVariable
+      name="Fe_duo_in_ser"
+      valueReference="1174405353"
+      description="Fe input to duodenum from serum, prev:in_2">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 329 -->
+    <ScalarVariable
+      name="Fe_duo_out_ser"
+      valueReference="1174405354"
+      description="Fe output from duodenum to serum, prev:out_1">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 330 -->
+    <ScalarVariable
+      name="Fe_duo_out_loss"
+      valueReference="1174405355"
+      description="Fe output from duodenum to intestines (Fe loss), prev:out_2">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 331 -->
+    <ScalarVariable
+      name="Fe_duo_unused"
+      valueReference="1711276268"
+      description="Unused Fe going through intestines">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 332 -->
+    <ScalarVariable
+      name="Fpn_duo_in_1"
+      valueReference="1174405357"
+      description="Fpn in duodenum creation: standard from mRNA">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 333 -->
+    <ScalarVariable
+      name="Fpn_duo_in_2"
+      valueReference="1174405358"
+      description="Fpn in duodenum creation by activation of Fe_duo">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 334 -->
+    <ScalarVariable
+      name="Fpn_duo_out_1"
+      valueReference="1174405359"
+      description="Degradation (internalization) of Fpn in duodenum: standard degradation rate">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 335 -->
+    <ScalarVariable
+      name="Fpn_duo_out_2"
+      valueReference="1174405360"
+      description="Degradation (internalization) of Fpn in duodenum by hepcidine">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 336 -->
+    <ScalarVariable
+      name="Fpn_duo_in"
+      valueReference="1174405361"
+      description="Fpn in duodenum synthesis">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 337 -->
+    <ScalarVariable
+      name="Fpn_duo_out"
+      valueReference="1174405362"
+      description="Fpn in duodenum degradation">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 338 -->
+    <ScalarVariable
+      name="Fpn_duo_mRNA_in"
+      valueReference="1174405279"
+      description="Fpn mRNA in duodenum synthesis">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 339 -->
+    <ScalarVariable
+      name="Fpn_duo_mRNA_out"
+      valueReference="1174405280"
+      description="Fpn mRNA in duodenum degradation">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 340 -->
+    <ScalarVariable
+      name="Fpn_duo_mRNA_inhib"
+      valueReference="1174405363"
+      description="Fpn mRNA in duodenum production inhibition by IL-6 (or indirectly by LPS)">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 341 -->
+    <ScalarVariable
+      name="Fe_liv_2"
+      valueReference="33554450"
+      description="Fe++ in liver"
+      initial="approx">
+      <Real
+        unit="ug"
+        start="19.2487"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 342 -->
+    <ScalarVariable
+      name="der(Fe_liv_2)"
+      valueReference="1124073490"
+      description="der(Fe++ in liver)">
+      <Real
+        unit="ug/s"
+        derivative="341"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 343 -->
+    <ScalarVariable
+      name="Fe_liv_3"
+      valueReference="33554451"
+      description="Fe+++ in liver, basically in ferritin"
+      initial="approx">
+      <Real
+        unit="ug"
+        start="57.7461"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 344 -->
+    <ScalarVariable
+      name="der(Fe_liv_3)"
+      valueReference="1124073491"
+      description="der(Fe+++ in liver, basically in ferritin)">
+      <Real
+        unit="ug/s"
+        derivative="343"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 345 -->
+    <ScalarVariable
+      name="Fe_liv_to_ferritin"
+      valueReference="1174405364">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 346 -->
+    <ScalarVariable
+      name="Fe_liv_from_ferritin"
+      valueReference="1174405365">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 347 -->
+    <ScalarVariable
+      name="Fe_liv_in_ser"
+      valueReference="1174405366"
+      description="Fe input to liver from serum">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 348 -->
+    <ScalarVariable
+      name="Fe_liv_out_ser"
+      valueReference="1174405367"
+      description="Fe output from liver to serum">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 349 -->
+    <ScalarVariable
+      name="Fpn_liv_in_1"
+      valueReference="1174405368"
+      description="Fpn in liver creation: standard from mRNA">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 350 -->
+    <ScalarVariable
+      name="Fpn_liv_in_2"
+      valueReference="1174405369"
+      description="Fpn in liver creation by activation of Fe_liv">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 351 -->
+    <ScalarVariable
+      name="Fpn_liv_out_1"
+      valueReference="1174405370"
+      description="Degradation (internalization) of Fpn in liver: standard degradation rate">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 352 -->
+    <ScalarVariable
+      name="Fpn_liv_out_2"
+      valueReference="1174405371"
+      description="Degradation (internalization) of Fpn in liver by hepcidine">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 353 -->
+    <ScalarVariable
+      name="Fpn_liv_in"
+      valueReference="1174405372"
+      description="Fpn in liver synthesis">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 354 -->
+    <ScalarVariable
+      name="Fpn_liv_out"
+      valueReference="1174405373"
+      description="Fpn in liver degradation">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 355 -->
+    <ScalarVariable
+      name="Fpn_liv_mRNA_in"
+      valueReference="1174405293"
+      description="Fpn mRNA in liver synthesis">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 356 -->
+    <ScalarVariable
+      name="Fpn_liv_mRNA_out"
+      valueReference="1174405294"
+      description="Fpn mRNA in liver degradation">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 357 -->
+    <ScalarVariable
+      name="Fpn_liv_mRNA_inhib"
+      valueReference="1174405374"
+      description="Fpn mRNA in liver production inhibition by IL-6 (or indirectly by LPS)">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 358 -->
+    <ScalarVariable
+      name="Fe_ser_in_liv"
+      valueReference="1174405375"
+      description="Fe flow from liver to serum">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 359 -->
+    <ScalarVariable
+      name="Fe_ser_in_spl"
+      valueReference="1174405376"
+      description="Fe flow from spleen to serum">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 360 -->
+    <ScalarVariable
+      name="Fe_ser_in_duo"
+      valueReference="1174405377"
+      description="Fe flow from duodenum to serum">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 361 -->
+    <ScalarVariable
+      name="Fe_ser_in_res"
+      valueReference="1174405378"
+      description="Fe flow from other organs to serum">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 362 -->
+    <ScalarVariable
+      name="Fe_ser_out_liv"
+      valueReference="1174405379"
+      description="Fe flow from serum to liver">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 363 -->
+    <ScalarVariable
+      name="Fe_ser_out_bm"
+      valueReference="1174405380"
+      description="Fe flow from serum to bone marrow">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 364 -->
+    <ScalarVariable
+      name="Fe_ser_out_duo"
+      valueReference="1174405381"
+      description="Fe flow from serum to duodenum">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 365 -->
+    <ScalarVariable
+      name="Fe_ser_out_res"
+      valueReference="1174405382"
+      description="Fe flow from serum to other organs">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 366 -->
+    <ScalarVariable
+      name="hep_in"
+      valueReference="1174405383"
+      description="Production of hepcidin">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 367 -->
+    <ScalarVariable
+      name="hep_out"
+      valueReference="1174405384"
+      description="Degradation of hepcidin">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 368 -->
+    <ScalarVariable
+      name="Il6mRNA_in"
+      valueReference="1174405385"
+      description="Production of IL-6 mRNA">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 369 -->
+    <ScalarVariable
+      name="Il6mRNA_out"
+      valueReference="1174405386"
+      description="Degradation of IL-6 mRNA">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 370 -->
+    <ScalarVariable
+      name="Il6_in"
+      valueReference="1174405387"
+      description="Production of IL-6">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 371 -->
+    <ScalarVariable
+      name="Il6_out"
+      valueReference="1174405388"
+      description="Degradation of IL-6">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 372 -->
+    <ScalarVariable
+      name="Bmp6_in"
+      valueReference="1174405389"
+      description="Bmp6 production rate">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 373 -->
+    <ScalarVariable
+      name="Bmp6_out"
+      valueReference="1174405390"
+      description="Bmp6 degradation rate">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 374 -->
+    <ScalarVariable
+      name="Fe_spl_2"
+      valueReference="33554452"
+      description="Fe++ in spleen"
+      initial="approx">
+      <Real
+        unit="ug"
+        start="4.43525"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 375 -->
+    <ScalarVariable
+      name="der(Fe_spl_2)"
+      valueReference="1124073492"
+      description="der(Fe++ in spleen)">
+      <Real
+        unit="ug/s"
+        derivative="374"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 376 -->
+    <ScalarVariable
+      name="Fe_spl_3"
+      valueReference="33554453"
+      description="Fe++ in spleen"
+      initial="approx">
+      <Real
+        unit="ug"
+        start="13.30575"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 377 -->
+    <ScalarVariable
+      name="der(Fe_spl_3)"
+      valueReference="1124073493"
+      description="der(Fe++ in spleen)">
+      <Real
+        unit="ug/s"
+        derivative="376"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 378 -->
+    <ScalarVariable
+      name="Fe_spl_to_ferritin"
+      valueReference="1174405391">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 379 -->
+    <ScalarVariable
+      name="Fe_spl_from_ferritin"
+      valueReference="1174405392">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 380 -->
+    <ScalarVariable
+      name="Fe_spl_in_RBC"
+      valueReference="1174405393"
+      description="Fe flow to spleen from RBC">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 381 -->
+    <ScalarVariable
+      name="Fe_spl_in_bm"
+      valueReference="1174405394"
+      description="Fe flow to spleen from bone marrow">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 382 -->
+    <ScalarVariable
+      name="Fe_spl_out_ser"
+      valueReference="1174405395"
+      description="Fe flow from spleen to serum">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 383 -->
+    <ScalarVariable
+      name="Fpn_spl_in_1"
+      valueReference="1174405396"
+      description="Fpn in spleen creation: standard from mRNA">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 384 -->
+    <ScalarVariable
+      name="Fpn_spl_in_2"
+      valueReference="1174405397"
+      description="Fpn in spleen creation by activation of Fe_spl">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 385 -->
+    <ScalarVariable
+      name="Fpn_spl_out_1"
+      valueReference="1174405398"
+      description="Degradation (internalization) of Fpn in spleen: standard degradation rate">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 386 -->
+    <ScalarVariable
+      name="Fpn_spl_out_2"
+      valueReference="1174405399"
+      description="Degradation (internalization) of Fpn in spleen by hepcidine">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 387 -->
+    <ScalarVariable
+      name="Fpn_spl_in"
+      valueReference="1174405400"
+      description="Fpn in spleen synthesis">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 388 -->
+    <ScalarVariable
+      name="Fpn_spl_out"
+      valueReference="1174405401"
+      description="Fpn in spleen degradation">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 389 -->
+    <ScalarVariable
+      name="Fpn_spl_mRNA_in"
+      valueReference="1174405320"
+      description="Fpn mRNA in spleen synthesis">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 390 -->
+    <ScalarVariable
+      name="Fpn_spl_mRNA_out"
+      valueReference="1174405321"
+      description="Fpn mRNA in spleen degradation">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 391 -->
+    <ScalarVariable
+      name="Fpn_spl_mRNA_inhib"
+      valueReference="1174405402"
+      description="Fpn mRNA in spleen production inhibition by IL-6 (or indirectly by LPS)">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 392 -->
+    <ScalarVariable
+      name="Fe_res_2"
+      valueReference="33554454"
+      description="Fe++ in other organs"
+      initial="approx">
+      <Real
+        unit="ug"
+        start="116.74625"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 393 -->
+    <ScalarVariable
+      name="der(Fe_res_2)"
+      valueReference="1124073494"
+      description="der(Fe++ in other organs)">
+      <Real
+        unit="ug/s"
+        derivative="392"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 394 -->
+    <ScalarVariable
+      name="Fe_res_3"
+      valueReference="33554455"
+      description="Fe++ in other organs"
+      initial="approx">
+      <Real
+        unit="ug"
+        start="350.23875"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 395 -->
+    <ScalarVariable
+      name="der(Fe_res_3)"
+      valueReference="1124073495"
+      description="der(Fe++ in other organs)">
+      <Real
+        unit="ug/s"
+        derivative="394"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 396 -->
+    <ScalarVariable
+      name="Fe_res_to_ferritin"
+      valueReference="1174405403">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 397 -->
+    <ScalarVariable
+      name="Fe_res_from_ferritin"
+      valueReference="1174405404">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 398 -->
+    <ScalarVariable
+      name="Fe_res_in_ser"
+      valueReference="1174405405"
+      description="Fe flow to other organs from serum">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 399 -->
+    <ScalarVariable
+      name="Fe_res_out_ser"
+      valueReference="1174405406"
+      description="Fe flow from other organs to serum">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 400 -->
+    <ScalarVariable
+      name="Fe_res_out_loss"
+      valueReference="1174405407"
+      description="Fe loss from other organs (skin peeling, etc.)">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 401 -->
+    <ScalarVariable
+      name="Fpn_res_in_1"
+      valueReference="1174405408"
+      description="Fpn in other organs creation: standard from mRNA">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 402 -->
+    <ScalarVariable
+      name="Fpn_res_in_2"
+      valueReference="1174405409"
+      description="Fpn in other organs creation by activation of Fe_res">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 403 -->
+    <ScalarVariable
+      name="Fpn_res_out_1"
+      valueReference="1174405410"
+      description="Degradation (internalization) of Fpn in other organs: standard degradation rate">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 404 -->
+    <ScalarVariable
+      name="Fpn_res_out_2"
+      valueReference="1174405411"
+      description="Degradation (internalization) of Fpn in other organs by hepcidine">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 405 -->
+    <ScalarVariable
+      name="Fpn_res_in"
+      valueReference="1174405412"
+      description="Fpn in spleen synthesis">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 406 -->
+    <ScalarVariable
+      name="Fpn_res_out"
+      valueReference="1174405413"
+      description="Fpn in spleen degradation">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 407 -->
+    <ScalarVariable
+      name="Fpn_res_mRNA_in"
+      valueReference="1174405335"
+      description="Fpn mRNA in other organs synthesis">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 408 -->
+    <ScalarVariable
+      name="Fpn_res_mRNA_out"
+      valueReference="1174405336"
+      description="Fpn mRNA in other organs degradation">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 409 -->
+    <ScalarVariable
+      name="Fpn_res_mRNA_inhib"
+      valueReference="1174405414"
+      description="Fpn mRNA in other organs production inhibition by IL-6 (or indirectly by LPS)">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 410 -->
+    <ScalarVariable
+      name="Fe_bm_in_ser"
+      valueReference="1174405415"
+      description="Fe flow to bone marrow from serum">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 411 -->
+    <ScalarVariable
+      name="Fe_bm_out_RBC"
+      valueReference="1174405416"
+      description="Fe flow from bone marrow to RBC">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 412 -->
+    <ScalarVariable
+      name="Fe_bm_out_spl"
+      valueReference="1174405417"
+      description="Fe flow from bone marrow to spleen">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 413 -->
+    <ScalarVariable
+      name="Fe_RBC_in_bm"
+      valueReference="1174405418"
+      description="Fe flow to RBC from bone marrow">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 414 -->
+    <ScalarVariable
+      name="Fe_RBC_out_spl"
+      valueReference="1174405419"
+      description="Fe flow from RBC to spleen">
+      <Real/>
+    </ScalarVariable>
+  </ModelVariables>
+  <ModelStructure>
+    <Derivatives>
+      <Unknown index="213"
+        dependencies="212 216 222"
+        dependenciesKind="fixed dependent dependent"/>
+      <Unknown index="217"
+        dependencies="216 248 341 343"
+        dependenciesKind="fixed dependent fixed fixed"/>
+      <Unknown index="219"
+        dependencies="218"
+        dependenciesKind="fixed"/>
+      <Unknown index="221"
+        dependencies="218 220"
+        dependenciesKind="dependent fixed"/>
+      <Unknown index="223"
+        dependencies="220 222"
+        dependenciesKind="dependent fixed"/>
+      <Unknown index="225"
+        dependencies="222 224"
+        dependenciesKind="dependent fixed"/>
+      <Unknown index="227"
+        dependencies="222 226"
+        dependenciesKind="dependent fixed"/>
+      <Unknown index="229"
+        dependencies="222 228"
+        dependenciesKind="dependent fixed"/>
+      <Unknown index="231"
+        dependencies="222 230"
+        dependenciesKind="dependent fixed"/>
+      <Unknown index="233"
+        dependencies="212 224 232 341 343"
+        dependenciesKind="fixed dependent dependent fixed fixed"/>
+      <Unknown index="235"
+        dependencies="212 226 234 374 376"
+        dependenciesKind="fixed dependent dependent fixed fixed"/>
+      <Unknown index="237"
+        dependencies="212 228 236 320 322"
+        dependenciesKind="fixed dependent dependent fixed fixed"/>
+      <Unknown index="239"
+        dependencies="212 230 238 392 394"
+        dependenciesKind="fixed dependent dependent fixed fixed"/>
+      <Unknown index="243"
+        dependencies="242 248"
+        dependenciesKind="fixed fixed"/>
+      <Unknown index="245"
+        dependencies="242 244"
+        dependenciesKind="fixed fixed"/>
+      <Unknown index="249"
+        dependencies="232 234 236 238 248 320 322 341 343 374 376 392 394"
+        dependenciesKind="dependent dependent dependent dependent dependent fixed fixed fixed fixed fixed fixed fixed fixed"/>
+      <Unknown index="321"
+        dependencies="236 248 320 322"
+        dependenciesKind="dependent fixed fixed fixed"/>
+      <Unknown index="323"
+        dependencies="320 322"
+        dependenciesKind="fixed fixed"/>
+      <Unknown index="342"
+        dependencies="232 248 341 343"
+        dependenciesKind="dependent dependent fixed fixed"/>
+      <Unknown index="344"
+        dependencies="341 343"
+        dependenciesKind="fixed fixed"/>
+      <Unknown index="375"
+        dependencies="234 242 244 374 376"
+        dependenciesKind="dependent fixed fixed fixed fixed"/>
+      <Unknown index="377"
+        dependencies="374 376"
+        dependenciesKind="fixed fixed"/>
+      <Unknown index="393"
+        dependencies="238 248 392 394"
+        dependenciesKind="dependent fixed fixed fixed"/>
+      <Unknown index="395"
+        dependencies="392 394"
+        dependenciesKind="fixed fixed"/>
+    </Derivatives>
+    <InitialUnknowns>
+      <Unknown index="212"
+        dependencies="210 211 218 253 254 256 257 259 260 261 262 263 264 265 269 270 271 272 273 274 275 276 277 281 285 286 287 288 289 290 291 292 293 294 295 298 299 300 301 302 303 304 305 306 307 308 309 310 311 312 313 314 315 316 317 318"
+        dependenciesKind="dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent"/>
+      <Unknown index="213"
+        dependencies=""
+        dependenciesKind=""/>
+      <Unknown index="216"
+        dependencies="210 218 253 254 256 257 259 260 261 262 263 264 265 269 270 271 272 273 274 275 276 277 281 285 286 287 288 289 290 291 292 293 294 295 298 299 300 301 302 303 304 305 306 307 308 309 310 311 312 313 314 315 316 317 318"
+        dependenciesKind="dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent"/>
+      <Unknown index="217"
+        dependencies=""
+        dependenciesKind=""/>
+      <Unknown index="219"
+        dependencies="218 258"
+        dependenciesKind="dependent dependent"/>
+      <Unknown index="220"
+        dependencies="218 259 260"
+        dependenciesKind="dependent dependent dependent"/>
+      <Unknown index="221"
+        dependencies=""
+        dependenciesKind=""/>
+      <Unknown index="222"
+        dependencies="218 259 260 261 262"
+        dependenciesKind="dependent dependent dependent dependent dependent"/>
+      <Unknown index="223"
+        dependencies=""
+        dependenciesKind=""/>
+      <Unknown index="224"
+        dependencies="218 259 260 261 262 263 264 265 315"
+        dependenciesKind="dependent dependent dependent dependent dependent dependent dependent dependent dependent"/>
+      <Unknown index="225"
+        dependencies=""
+        dependenciesKind=""/>
+      <Unknown index="226"
+        dependencies="218 259 260 261 262 263 264 265 316"
+        dependenciesKind="dependent dependent dependent dependent dependent dependent dependent dependent dependent"/>
+      <Unknown index="227"
+        dependencies=""
+        dependenciesKind=""/>
+      <Unknown index="228"
+        dependencies="218 259 260 261 262 263 264 265 314"
+        dependenciesKind="dependent dependent dependent dependent dependent dependent dependent dependent dependent"/>
+      <Unknown index="229"
+        dependencies=""
+        dependenciesKind=""/>
+      <Unknown index="230"
+        dependencies="218 259 260 261 262 263 264 265 317"
+        dependenciesKind="dependent dependent dependent dependent dependent dependent dependent dependent dependent"/>
+      <Unknown index="231"
+        dependencies=""
+        dependenciesKind=""/>
+      <Unknown index="232"
+        dependencies="210 218 253 254 256 257 259 260 261 262 263 264 265 269 270 271 272 273 274 275 276 277 281 285 286 287 288 289 290 291 292 293 294 295 298 299 300 301 302 303 304 305 306 307 308 309 310 311 312 313 314 315 316 317 318"
+        dependenciesKind="dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent"/>
+      <Unknown index="233"
+        dependencies=""
+        dependenciesKind=""/>
+      <Unknown index="234"
+        dependencies="210 218 253 254 256 257 259 260 261 262 263 264 265 269 270 271 272 273 274 275 276 277 281 285 286 287 288 289 290 291 292 293 294 295 298 299 300 301 302 303 304 305 306 307 308 309 310 311 312 313 314 315 316 317 318"
+        dependenciesKind="dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent"/>
+      <Unknown index="235"
+        dependencies=""
+        dependenciesKind=""/>
+      <Unknown index="236"
+        dependencies="210 218 253 254 256 257 259 260 261 262 263 264 265 269 270 271 272 273 274 275 276 277 281 285 286 287 288 289 290 291 292 293 294 295 298 299 300 301 302 303 304 305 306 307 308 309 310 311 312 313 314 315 316 317 318"
+        dependenciesKind="dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent"/>
+      <Unknown index="237"
+        dependencies=""
+        dependenciesKind=""/>
+      <Unknown index="238"
+        dependencies="210 218 253 254 256 257 259 260 261 262 263 264 265 269 270 271 272 273 274 275 276 277 281 285 286 287 288 289 290 291 292 293 294 295 298 299 300 301 302 303 304 305 306 307 308 309 310 311 312 313 314 315 316 317 318"
+        dependenciesKind="dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent"/>
+      <Unknown index="239"
+        dependencies=""
+        dependenciesKind=""/>
+      <Unknown index="242"
+        dependencies="210 218 253 254 256 257 259 260 261 262 263 264 265 269 270 271 272 273 274 275 276 277 281 285 286 287 288 289 290 291 292 293 294 295 298 299 300 301 302 303 304 305 306 307 308 309 310 311 312 313 314 315 316 317 318"
+        dependenciesKind="dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent"/>
+      <Unknown index="243"
+        dependencies=""
+        dependenciesKind=""/>
+      <Unknown index="244"
+        dependencies="210 218 253 254 256 257 259 260 261 262 263 264 265 269 270 271 272 273 274 275 276 277 281 285 286 287 288 289 290 291 292 293 294 295 298 299 300 301 302 303 304 305 306 307 308 309 310 311 312 313 314 315 316 317 318"
+        dependenciesKind="dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent"/>
+      <Unknown index="245"
+        dependencies=""
+        dependenciesKind=""/>
+      <Unknown index="248"
+        dependencies="210 218 253 254 256 257 259 260 261 262 263 264 265 269 270 271 272 273 274 275 276 277 281 285 286 287 288 289 290 291 292 293 294 295 298 299 300 301 302 303 304 305 306 307 308 309 310 311 312 313 314 315 316 317 318"
+        dependenciesKind="dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent"/>
+      <Unknown index="249"
+        dependencies=""
+        dependenciesKind=""/>
+      <Unknown index="320"
+        dependencies="210 218 253 254 256 257 259 260 261 262 263 264 265 269 270 271 272 273 274 275 276 277 281 285 286 287 288 289 290 291 292 293 294 295 298 299 300 301 302 303 304 305 306 307 308 309 310 311 312 313 314 315 316 317 318"
+        dependenciesKind="dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent"/>
+      <Unknown index="321"
+        dependencies=""
+        dependenciesKind=""/>
+      <Unknown index="322"
+        dependencies="210 218 253 254 256 257 259 260 261 262 263 264 265 269 270 271 272 273 274 275 276 277 281 285 286 287 288 289 290 291 292 293 294 295 298 299 300 301 302 303 304 305 306 307 308 309 310 311 312 313 314 315 316 317 318"
+        dependenciesKind="dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent"/>
+      <Unknown index="323"
+        dependencies=""
+        dependenciesKind=""/>
+      <Unknown index="341"
+        dependencies="210 218 253 254 256 257 259 260 261 262 263 264 265 269 270 271 272 273 274 275 276 277 281 285 286 287 288 289 290 291 292 293 294 295 298 299 300 301 302 303 304 305 306 307 308 309 310 311 312 313 314 315 316 317 318"
+        dependenciesKind="dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent"/>
+      <Unknown index="342"
+        dependencies=""
+        dependenciesKind=""/>
+      <Unknown index="343"
+        dependencies="210 218 253 254 256 257 259 260 261 262 263 264 265 269 270 271 272 273 274 275 276 277 281 285 286 287 288 289 290 291 292 293 294 295 298 299 300 301 302 303 304 305 306 307 308 309 310 311 312 313 314 315 316 317 318"
+        dependenciesKind="dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent"/>
+      <Unknown index="344"
+        dependencies=""
+        dependenciesKind=""/>
+      <Unknown index="374"
+        dependencies="210 218 253 254 256 257 259 260 261 262 263 264 265 269 270 271 272 273 274 275 276 277 281 285 286 287 288 289 290 291 292 293 294 295 298 299 300 301 302 303 304 305 306 307 308 309 310 311 312 313 314 315 316 317 318"
+        dependenciesKind="dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent"/>
+      <Unknown index="375"
+        dependencies=""
+        dependenciesKind=""/>
+      <Unknown index="376"
+        dependencies="210 218 253 254 256 257 259 260 261 262 263 264 265 269 270 271 272 273 274 275 276 277 281 285 286 287 288 289 290 291 292 293 294 295 298 299 300 301 302 303 304 305 306 307 308 309 310 311 312 313 314 315 316 317 318"
+        dependenciesKind="dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent"/>
+      <Unknown index="377"
+        dependencies=""
+        dependenciesKind=""/>
+      <Unknown index="392"
+        dependencies="210 218 253 254 256 257 259 260 261 262 263 264 265 269 270 271 272 273 274 275 276 277 281 285 286 287 288 289 290 291 292 293 294 295 298 299 300 301 302 303 304 305 306 307 308 309 310 311 312 313 314 315 316 317 318"
+        dependenciesKind="dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent"/>
+      <Unknown index="393"
+        dependencies=""
+        dependenciesKind=""/>
+      <Unknown index="394"
+        dependencies="210 218 253 254 256 257 259 260 261 262 263 264 265 269 270 271 272 273 274 275 276 277 281 285 286 287 288 289 290 291 292 293 294 295 298 299 300 301 302 303 304 305 306 307 308 309 310 311 312 313 314 315 316 317 318"
+        dependenciesKind="dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent"/>
+      <Unknown index="395"
+        dependencies=""
+        dependenciesKind=""/>
+    </InitialUnknowns>
+  </ModelStructure>
+</fmiModelDescription>
